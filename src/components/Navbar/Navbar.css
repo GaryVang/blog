@@ -1,0 +1,67 @@
+.navbar-container {
+    /* display: flex; */
+    justify-content: flex-end;
+    /* justify-content: space-between; */
+    /* width: 100%; */
+    /* background-color: lightblue; */
+    /* background-color: #08141e; */
+}
+
+.navbar-container-loggedin {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    justify-content: space-between;
+    /* width: 100%; */
+    /* background-color: lightblue; */
+    /* background-color: #08141e; */
+}
+
+.navbar-container, .navbar-container-loggedin {
+    display: flex;
+    width: 100%;
+    background-color: #08141e;
+}
+
+.navbar {
+    display: inline-flex;
+    list-style-type: none;
+}
+
+.nav-item {
+    /* padding: 5px 5px 5px 5px; */
+    margin: 0px 5px 0px 5px;
+    /* border: 1px solid white; */
+    display: flex;
+    /* box-sizing: border-box; */
+}
+
+.nav-item:hover {
+    /* background-color: grey; */
+    margin-bottom: -1px;
+    border-bottom: 1px solid yellow;
+    /* box-sizing: border-box; */
+    /* border-bottom: 1px solid #ffc045; */
+    cursor: pointer;
+}
+
+.nav-link {
+    text-decoration: none;
+    /* color: black; */
+    color: white;
+    padding: 5px 5px 5px 5px;
+    /* box-sizing: border-box; */
+}
+
+.nav-link:hover {
+    /* cursor: pointer; */
+    /* padding-bottom: 10px; */
+    /* background-color: pink; */
+}
+
+.nav-item-username {
+    align-self: center;
+    margin-left: 30px;
+    list-style-type: none;
+    cursor: default;
+    color: white;
+}
