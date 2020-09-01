@@ -97,9 +97,57 @@ const fetchPosts = async (url) => {
   return result;
 };
 
+const fetchSignIn = async (url, username, password) => {
+  let response;
+  // const signin = await fetch("http://localhost:3005/signin", {
+  await fetch(url, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "include",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
+  })
+    .then((res) => res.json()) //Extracts the json body content from the response
+    .then((data) => {
+      response = data;
+    });
+
+  return response;
+};
+
+const fetchRegister = async (url, username, password) => {
+  let response;
+  await fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "include",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
+  })
+    .then((res) => res.json()) //Extracts the json body content from the response
+    .then((data) => (response = data));
+  // .then(data => {return data})
+  // console.log('res: ', res);
+  return response;
+};
+
 module.exports = {
   fetchIsLoggedIn,
   AjaxHelper,
   fetchHomeInitial,
   fetchPosts,
+  fetchSignIn,
+  fetchRegister
 };

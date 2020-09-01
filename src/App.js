@@ -46,7 +46,7 @@ const App = () => {
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/post" render={() => <Post />} />
         <Route exact path="/register" render={() => <Register />} />
-        <Route exact path="/signin" render={() => <SignIn />} />
+        <Route exact path="/signin" render={() => <SignIn setIsLoggedIn={setIsLoggedIn} setUser={setUser} />} />
         <Route exact path="/user" render={() => <UserProfile />} />
       </Switch>
     </div>

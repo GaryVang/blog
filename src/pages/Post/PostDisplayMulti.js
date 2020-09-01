@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef, useReducer } from "react";
+import { unstable_batchedUpdates } from "react-dom";
+
 import PostPanelMini from "./PostPanelMini";
 import { fetchHomeInitial, fetchPosts } from "../../helpers/getData";
-import { unstable_batchedUpdates } from "react-dom";
+import PostOverlay from "./PostOverlay";
+
+import "./PostDisplayMulti.css";
 
 const PostDisplayMulti = (
   {
@@ -43,7 +47,7 @@ const PostDisplayMulti = (
   // }, [state.page]);
 
   //------------------------------------
-  const firstLoad = useRef(true);
+  const firstLoad = useRef(true); //useRef used to prevent rerender on change
 
   const [initialLoad] = useState(true);
   useEffect(() => {
@@ -85,6 +89,12 @@ const PostDisplayMulti = (
   const [postCount, setPostCount] = useState(0);
   const [postList, setPostList] = useState(false);
 
+  const [fullViewOverlayFlag, setfullViewOverlayFlag] = useState(false);
+
+  const [fullViewOverlay, setFullViewOverlay] = useState({
+    flag: false,
+    post: null,
+  });
   //----------------------------------
 
   const getPosts = async (page) => {
@@ -94,11 +104,18 @@ const PostDisplayMulti = (
     }
   };
 
-  const renderPosts = () => {
+  const renderPosts = (enableFullView, disableFullView) => {
     return postList.map((post) => {
       // console.log('post render');
       // return state.postList.map((post) => {
-      return <PostPanelMini key={post.post_id} post={post} />;
+      return (
+        <PostPanelMini
+          key={post.post_id}
+          post={post}
+          enableFullView={enableFullView}
+          disableFullView={disableFullView}
+        />
+      );
     });
   };
 
@@ -134,8 +151,23 @@ const PostDisplayMulti = (
   //     dispatch({type: 'decrement'});
   //   };
 
+  const renderPostFullView = (post) => {
+    return <PostOverlay post={post} disableFullView={disableFullView} />;
+  };
+
+  const enableFullView = (post) => {
+    setFullViewOverlay({ flag: true, post: post });
+    document.body.style.overflow = "hidden";
+  };
+
+  const disableFullView = () => {
+    setFullViewOverlay({ flag: false, post: null });
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <section className="post-display-multi-container">
+      {fullViewOverlay.flag ? renderPostFullView(fullViewOverlay.post) : null}
       <div className="post-button-wrapper">
         <button
           className="post-button-previous"
@@ -161,7 +193,7 @@ const PostDisplayMulti = (
           Forward
         </button>
       </div>
-      {postList ? renderPosts() : null}
+      {postList ? renderPosts(enableFullView, disableFullView) : null}
       {/* {state.postList ? renderPosts() : console.log(4, state)} */}
     </section>
   );

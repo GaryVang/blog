@@ -1,0 +1,43 @@
+.signin-section {
+    display: flex;
+    justify-content: center;
+}
+
+.signin-container {
+    background-color: white;
+    margin-top: 50px;
+    /* background-color: #0c2233; */
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signin-input-username:focus {
+    /* outline: 3px solid lightblue; */
+    border: 2px solid #0c2233;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52); 
+    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52);
+    /* border: 2px solid #ffc045; */
+}
+
+.signin-input-password {
+    margin: 0 0 10px;
+}
+
+.signin-input-password:focus {
+    outline: 3px solid lightblue;
+}
+
+.signin-button-wrapper {
+    margin-bottom: 20px;
+}
+
+.signin-button {
+    background-color: #ebe4c2;
+}
