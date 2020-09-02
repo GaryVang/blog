@@ -21,6 +21,11 @@
     color: rgb(116, 116, 116);
     font-size: 14px;
     flex-direction: column;
+    white-space: pre-wrap;
+}
+
+.post-panel-mini-username:hover {
+    border-bottom: 1px solid black;
 }
 
 .post-panel-mini-snippet {
@@ -28,3 +33,9 @@
     margin-bottom: 5px;
     white-space: pre-wrap;
 }
+
+
+
+/* .post-panel-mini-username-pre {
+    white-space: pre-wrap;
+} */

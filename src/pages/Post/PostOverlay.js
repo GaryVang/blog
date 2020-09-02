@@ -1,16 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import "./PostOverlay.css";
 
-//------------------------------
-// To-do:
-//      - Disable body scroll
-//--------------------------------
 const PostOverlay = ({ post, disableFullView }) => {
+  const history = useHistory();
 
   //Prevents overlay from closing due to parent's onClick event
   const handleArticleClick = (e) => {
     e.stopPropagation();
+  };
+
+  const handleUsernameClick = (e) => {
+    e.stopPropagation();
+    history.push(`/user/${post.username}`);
   };
 
   return (
@@ -22,7 +25,11 @@ const PostOverlay = ({ post, disableFullView }) => {
         <header>
           <h3 className="post-overlay-title">{post.title}</h3>
           <span className="post-overlay-publish-wrapper">
-            <a>By {post.username}</a>
+            <span>
+              By <a className="post-overlay-mini-username" onClick={(e) => {handleUsernameClick(e);}}>
+                {post.username}
+              </a>
+            </span>
             <time>Published {post.post_date}</time>
           </span>
         </header>

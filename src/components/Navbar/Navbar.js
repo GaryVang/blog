@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 
-const Navbar = ({ isLoggedIn, setIsLoggedIn, user }) => {
+const Navbar = ({ isLoggedIn, user, handleLogout }) => {
   return (
     <nav
       className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"}
@@ -40,6 +40,13 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, user }) => {
                 User Profile
               </Link>
             </li>
+            
+            {/* Remove after testing */}
+            <li className="nav-item">
+              <Link className="nav-link" to="/post">
+                Create a Post
+              </Link>
+            </li>
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -51,7 +58,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, user }) => {
             <li
               className="nav-item"
               onClick={() => {
-                setIsLoggedIn(false);
+                handleLogout();
               }}
             >
               <Link className="nav-link" to="/signin">

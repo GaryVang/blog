@@ -143,11 +143,63 @@ const fetchRegister = async (url, username, password) => {
   return response;
 };
 
+const fetchLogout = async (url) => {
+  await fetch(url, {
+    // const getPosts = await fetch('http://localhost:3005/getPosts/' + 1, {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "include",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json()) //Extracts the json body content from the response
+    .then(console.log);
+};
+
+const fetchSubmitPost = async (url, post) => {
+  let response;
+  await fetch("http://localhost:3005/submitPost/", {
+    method: "PUT",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(post),
+  })
+    .then((response) => response.json()) //Extracts the json body content from the response
+    .then((data) => (response = data));
+
+  return response.status;
+};
+
+const fetchUserProfile = async (url, username) => {
+  let response;
+  await fetch(url+username, {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "include",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+  .then(response => response.json())
+  .then((data) => response = data);
+
+  return response ;
+};
+
 module.exports = {
   fetchIsLoggedIn,
   AjaxHelper,
   fetchHomeInitial,
   fetchPosts,
   fetchSignIn,
-  fetchRegister
+  fetchRegister,
+  fetchLogout,
+  fetchSubmitPost,
+  fetchUserProfile,
 };

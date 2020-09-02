@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useReducer } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { unstable_batchedUpdates } from "react-dom";
 
 import PostPanelMini from "./PostPanelMini";
@@ -7,46 +7,9 @@ import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
 
-const PostDisplayMulti = (
-  {
-    //   postList,
-    //   page,
-    //   postCount,
-    //   setPage,
-    //   nextPage,
-    //   prevPage,
-  }
-) => {
+const PostDisplayMulti = ({ query }) => {
   console.log("Post Multi");
 
-  // const fetchTest =  async (page) => {
-  //     await fetchPosts(`http://localhost:3005/getPosts/${page}`)
-  //     .then(result => );
-  //     // console.log('x: ', x);
-  //     return x;
-  // }
-
-  // const reducer =   (state, action) => {
-  //     const { page, postList } = state;
-  //      switch (action.type) {
-  //         case 'increment':
-  //             // console.log(7777,  {page: page + 1, postList:  await fetchTest(page+1)});
-  //           return {page: page + 1, postList:   fetchTest(page+1)};
-  //         case 'decrement':
-  //         //   return {count: state.count - 1};
-  //           return {page: page - 1, postList:   fetchTest(page-1)};
-  //         default:
-  //           throw new Error();
-  //       }
-  // };
-
-  // const [state, dispatch] = useReducer(reducer, {page: 1, postList: false});
-  // useEffect(() => {
-  //     console.log('state: ', state);
-  //     console.log('postList: ', state.postList);
-  // }, [state.page]);
-
-  //------------------------------------
   const firstLoad = useRef(true); //useRef used to prevent rerender on change
 
   const [initialLoad] = useState(true);
@@ -56,7 +19,7 @@ const PostDisplayMulti = (
       console.log("useRef: ", firstLoad);
       console.log("useRef current: ", firstLoad.current);
       const initialDataFetch = async () => {
-        const result = await fetchHomeInitial("http://localhost:3005/");
+        const result = await fetchHomeInitial("http://localhost:3005/" + (query ? query : ""));
         if (result.postList) {
           unstable_batchedUpdates(() => {
             setPostCount(result.postCount);
@@ -64,41 +27,20 @@ const PostDisplayMulti = (
           });
         }
       };
-
       initialDataFetch();
     }
   }, []);
 
   const [page, setPage] = useState(1);
-  //   useEffect(() => {
-  //     console.log("page outer: ", postCount);
-  //     if (!firstLoad.current) {
-  //       console.log("page inner");
-  //       const getPosts = async () => {
-  //         let result = await fetchPosts(`http://localhost:3005/getPosts/${page}`);
-  //         if (result) {
-  //           setPostList(result);
-  //         }
-  //       };
-  //       getPosts();
-  //     } else {
-  //       firstLoad.current = false;
-  //     }
-  //   }, [page]);
-
   const [postCount, setPostCount] = useState(0);
   const [postList, setPostList] = useState(false);
-
-  const [fullViewOverlayFlag, setfullViewOverlayFlag] = useState(false);
-
   const [fullViewOverlay, setFullViewOverlay] = useState({
     flag: false,
     post: null,
   });
-  //----------------------------------
 
   const getPosts = async (page) => {
-    let result = await fetchPosts(`http://localhost:3005/getPosts/${page}`);
+    let result = await fetchPosts(`http://localhost:3005/getPosts/${page}` + (query ? query : ""));
     if (result) {
       return result;
     }
@@ -107,7 +49,6 @@ const PostDisplayMulti = (
   const renderPosts = (enableFullView, disableFullView) => {
     return postList.map((post) => {
       // console.log('post render');
-      // return state.postList.map((post) => {
       return (
         <PostPanelMini
           key={post.post_id}
@@ -143,14 +84,6 @@ const PostDisplayMulti = (
     }
   };
 
-  //   const handleNext = () => {
-  //       dispatch({type: "increment"});
-  //   };
-
-  //   const handlePrev = () => {
-  //     dispatch({type: 'decrement'});
-  //   };
-
   const renderPostFullView = (post) => {
     return <PostOverlay post={post} disableFullView={disableFullView} />;
   };
@@ -173,8 +106,6 @@ const PostDisplayMulti = (
           className="post-button-previous"
           onClick={() => handlePrevPage(page)}
           disabled={page !== 1 ? false : true}
-          //   onClick={() => handlePrev()}
-          //   disabled={state.page !== 1 ? false : true}
         >
           Previous
         </button>
@@ -182,19 +113,15 @@ const PostDisplayMulti = (
           Refresh
         </button> */}
         <label>{page}</label>
-        {/* <label>{state.page}</label> */}
         <button
           className="post-button-next"
           onClick={() => handleNextPage(page, postCount)}
           disabled={postCount / 5 > page ? false : true}
-          //   onClick={() => handleNext()}
-          //   disabled={postCount / 5 > state.page ? false : true}
         >
           Forward
         </button>
       </div>
       {postList ? renderPosts(enableFullView, disableFullView) : null}
-      {/* {state.postList ? renderPosts() : console.log(4, state)} */}
     </section>
   );
 };

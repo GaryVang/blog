@@ -28,6 +28,12 @@
     flex-direction: column;
     color: rgb(116, 116, 116);
     font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.post-overlay-mini-username:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
 .post-overlay-content {

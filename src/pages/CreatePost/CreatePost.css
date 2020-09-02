@@ -1,0 +1,42 @@
+.post-create-container {
+    /* display: block; */
+}
+
+.post-create-form {
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.post-create-title-wrapper {
+    display: flex;
+    align-items: flex-start;
+
+    white-space: pre;
+    width: 60%;
+
+    margin: 0 0 10px 0;
+}
+
+.post-create-title {
+    width: 30%;
+}
+
+.post-create-title:focus {
+    outline: 3px solid lightblue;
+}
+
+.post-create-textarea {
+    width: 60%;
+    height: 150px;
+    margin: 0 0 10px;
+}
+
+.post-create-textarea:focus {
+    outline: 5px solid lightblue;
+}
+
+.button {
+    cursor: pointer;
+}
