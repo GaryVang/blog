@@ -2,7 +2,7 @@ import React from "react";
 
 // import useFetchPost from "../../hooks/useFetchPost";
 // import { fetchHomeInitial, fetchPosts } from "../../helpers/getData";
-import PostDisplayMulti from "../Post/PostDisplayMulti";
+import PostDisplayMulti from "../../components/Post/PostDisplayMulti";
 
 import './Home.css';
 

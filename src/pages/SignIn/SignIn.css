@@ -6,7 +6,6 @@
 .signin-container {
     background-color: white;
     margin-top: 50px;
-    /* background-color: #0c2233; */
     border: 2px solid lightgrey;
     border-radius: 10px;
     width: 500px;
@@ -18,20 +17,21 @@
     align-items: center;
 }
 
-.signin-input-username:focus {
-    /* outline: 3px solid lightblue; */
-    border: 2px solid #0c2233;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52); 
-    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52);
-    /* border: 2px solid #ffc045; */
+.signin-input-username,
+.signin-input-password {
+    width: 290px;
+}
+
+.signin-input-username:focus,
+.signin-input-password:focus {
+    /* border: 2px solid #0c2233; */
+    border: 2px solid #1e537c;
+    -webkit-box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52); 
+    box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52);
 }
 
 .signin-input-password {
     margin: 0 0 10px;
-}
-
-.signin-input-password:focus {
-    outline: 3px solid lightblue;
 }
 
 .signin-button-wrapper {
@@ -40,4 +40,12 @@
 
 .signin-button {
     background-color: #ebe4c2;
+}
+
+.signin-button:hover {
+    background-color: #dad3b5;
+}
+
+.sign-button-submit {
+    margin-right: 5px;
 }

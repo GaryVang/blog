@@ -29,7 +29,6 @@ const Register = ({}) => {
   };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
     console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchRegister(URL_REGISTER, username, password);
@@ -48,10 +47,6 @@ const Register = ({}) => {
       setUsername("");
       setPassword("");
     });
-  };
-
-  const handleClear = (e) => {
-    resetUsernamePassword();
   };
 
   const usernameValidation = (str) => {
@@ -76,7 +71,6 @@ const Register = ({}) => {
       alert("Password Surpassed the 64 character limit");
       return false;
     }
-
     return true;
   };
 
@@ -105,29 +99,17 @@ const Register = ({}) => {
             className="register-input-password"
             type="text"
             id="password"
-            maxLength="20"
+            maxLength="60"
             value={password}
             onChange={onPasswordChange}
           />
           <span className="register-button-wrapper">
             <input
-              className="register-button-signin button"
+              className="register-button-submit button"
               type="Submit"
               value="Create Account"
               onClick={handleSubmit}
             />
-            {/* <input
-              className="register-button-signin button"
-              type="Submit"
-              value="Submit"
-              onClick={handleSubmit}
-            /> */}
-            {/* <input
-              className="register-button-signin button"
-              type="button"
-              value="Clear"
-              onClick={handleClear}
-            /> */}
           </span>
         </form>
       </div>

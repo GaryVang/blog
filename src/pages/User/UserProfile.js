@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchUserProfile } from "../../helpers/getData";
 
 import UserInfoPanel from "./UserInfoPanel";
-import PostDisplayMulti from '../Post/PostDisplayMulti';
+import PostDisplayMulti from '../../components/Post/PostDisplayMulti';
 
 import "./UserProfile.css";
 

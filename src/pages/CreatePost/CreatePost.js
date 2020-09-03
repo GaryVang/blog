@@ -7,16 +7,8 @@ import "./CreatePost.css";
 
 const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
 
-const CreatePost = (
-  {
-    // user
-  }
-) => {
+const CreatePost = ({ user }) => {
   const x = console.log("Create Post");
-
-  //-------Test Variables------------
-  const user = "TestUser";
-  //---------------------------------
 
   const [title, setTitle] = useState("");
   const [textarea, setTextarea] = useState("");
@@ -35,7 +27,9 @@ const CreatePost = (
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
-    if ( typeof title === 'string' && typeof textarea === 'string' &&
+    if (
+      typeof title === "string" &&
+      typeof textarea === "string" &&
       title &&
       textarea &&
       (await fetchSubmitPost(URL_SUBMITPOST, {
@@ -52,47 +46,58 @@ const CreatePost = (
   };
 
   const resetFields = () => {
-    unstable_batchedUpdates(() => {
-      setTitle("");
-      setTextarea("");
-    });
+    if (title !== "" || textarea !== "") {
+      unstable_batchedUpdates(() => {
+        setTitle("");
+        setTextarea("");
+      });
+    }
   };
 
   return (
-    <article className="post-create-container">
-      <h1>Create a Blog Post</h1>
-      <form className="post-create-form" onSubmit={onFormSubmit}>
-        <span className="post-create-title-wrapper">
-          <label for="title">Title: </label>
-          <input
-            className="post-create-title"
-            type="text"
-            placeholder="title"
-            id="title"
-            maxLength="50"
-            value={title}
-            onChange={onTitleChange}
-          />
-        </span>
+    <section className="post-create-section">
+      <article className="post-create-container">
+        <h1 className="post-create-header">Create a Blog Post</h1>
+        <form className="post-create-form" onSubmit={onFormSubmit}>
+          <span className="post-create-title-wrapper">
+            <label className="post-create-title-label" for="title">
+              Title:{" "}
+            </label>
+            <input
+              className="post-create-title"
+              type="text"
+              placeholder="title"
+              id="title"
+              maxLength="50"
+              value={title}
+              onChange={onTitleChange}
+            />
+          </span>
 
-        <textarea
-          className="post-create-textarea"
-          placeholder="content..."
-          value={textarea}
-          onChange={onTextareaChange}
-        ></textarea>
+          <textarea
+            className="post-create-textarea"
+            placeholder="content..."
+            value={textarea}
+            onChange={onTextareaChange}
+          ></textarea>
 
-        <span className="button-wrapper">
-          <input
-            className="post-button button"
-            type="Submit"
-            value="Submit"
-            onClick={handleSubmit}
-          />
-          <input className="post-button button" type="button" value="Clear" />
-        </span>
-      </form>
-    </article>
+          <span className="post-create-button-wrapper">
+            <input
+              className="post-button button post-button-submit"
+              type="Submit"
+              value="Submit"
+              onClick={handleSubmit}
+            />
+            <input
+              className="post-button button"
+              type="button"
+              value="Clear"
+              onClick={resetFields}
+            />
+          </span>
+        </form>
+      </article>
+    </section>
   );
 };
 

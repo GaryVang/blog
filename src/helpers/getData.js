@@ -1,10 +1,5 @@
-const AjaxHelper = (str) => {
-  // return ('Ajax Helper');
-  console.log(str);
-};
-
 const fetchIsLoggedIn = async (url) => {
-  let username;
+  let user;
   await fetch(url, {
     method: "GET",
     mode: "cors",
@@ -17,10 +12,10 @@ const fetchIsLoggedIn = async (url) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.username) {
-        username = data;
+        user = data;
       }
     });
-  return username;
+  return user;
 };
 
 const fetchHomeInitial = async (url) => {
@@ -36,38 +31,6 @@ const fetchHomeInitial = async (url) => {
   })
     .then((res) => res.json())
     .then((data) => (result = data));
-  // .then((data) => {
-  //   if (data.username) {
-  //     setResult(data);
-  //   } else {
-  //     console.log("Error On Initial Load: ", data.comment);
-  //   }
-  // });
-
-  return result;
-};
-
-const initHomeFetch = async (url) => {
-  let result;
-  await fetch(url, {
-    method: "GET",
-    mode: "cors",
-    cache: "no-cache",
-    credentials: "include",
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => (result = data));
-  // .then((data) => {
-  //   if (data.username) {
-  //     setResult(data);
-  //   } else {
-  //     console.log("Error On Initial Load: ", data.comment);
-  //   }
-  // });
-
   return result;
 };
 
@@ -83,11 +46,8 @@ const fetchPosts = async (url) => {
     },
   })
     .then((response) => response.json()) //Extracts the json body content from the response
-    // .then(console.log);
-    // .then((data) => setPostArr(data));
     .then((data) => {
       if (data.status) {
-        // setPostArr(data.data);
         result = data.data;
       } else {
         console.log("Error: ", data.comment);
@@ -99,7 +59,6 @@ const fetchPosts = async (url) => {
 
 const fetchSignIn = async (url, username, password) => {
   let response;
-  // const signin = await fetch("http://localhost:3005/signin", {
   await fetch(url, {
     method: "POST",
     mode: "cors",
@@ -113,7 +72,7 @@ const fetchSignIn = async (url, username, password) => {
       password: password,
     }),
   })
-    .then((res) => res.json()) //Extracts the json body content from the response
+    .then((res) => res.json())
     .then((data) => {
       response = data;
     });
@@ -136,16 +95,13 @@ const fetchRegister = async (url, username, password) => {
       password: password,
     }),
   })
-    .then((res) => res.json()) //Extracts the json body content from the response
+    .then((res) => res.json())
     .then((data) => (response = data));
-  // .then(data => {return data})
-  // console.log('res: ', res);
   return response;
 };
 
 const fetchLogout = async (url) => {
   await fetch(url, {
-    // const getPosts = await fetch('http://localhost:3005/getPosts/' + 1, {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -154,22 +110,23 @@ const fetchLogout = async (url) => {
       "Content-type": "application/json",
     },
   })
-    .then((response) => response.json()) //Extracts the json body content from the response
+    .then((response) => response.json())
     .then(console.log);
 };
 
 const fetchSubmitPost = async (url, post) => {
   let response;
-  await fetch("http://localhost:3005/submitPost/", {
+  await fetch(url, {
     method: "PUT",
     mode: "cors",
     cache: "no-cache",
+    credentials: "include",
     headers: {
       "Content-type": "application/json",
     },
     body: JSON.stringify(post),
   })
-    .then((response) => response.json()) //Extracts the json body content from the response
+    .then((response) => response.json())
     .then((data) => (response = data));
 
   return response.status;
@@ -177,7 +134,7 @@ const fetchSubmitPost = async (url, post) => {
 
 const fetchUserProfile = async (url, username) => {
   let response;
-  await fetch(url+username, {
+  await fetch(url + username, {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -186,15 +143,14 @@ const fetchUserProfile = async (url, username) => {
       "Content-type": "application/json",
     },
   })
-  .then(response => response.json())
-  .then((data) => response = data);
+    .then((response) => response.json())
+    .then((data) => (response = data));
 
-  return response ;
+  return response;
 };
 
 module.exports = {
   fetchIsLoggedIn,
-  AjaxHelper,
   fetchHomeInitial,
   fetchPosts,
   fetchSignIn,

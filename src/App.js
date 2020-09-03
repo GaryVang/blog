@@ -15,13 +15,14 @@ import { fetchIsLoggedIn, fetchLogout } from "./helpers/getData";
 import "./App.css";
 
 const URL_LOGOUT = "http://localhost:3005/logout";
+const URL_AUTH = "http://localhost:3005/auth/";
 
 const App = () => {
   console.log("App");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const checkIsLoggedIn = async () => {
-      const username = await fetchIsLoggedIn("http://localhost:3005/auth/");
+      const username = await fetchIsLoggedIn(URL_AUTH);
       if (username) {
         unstable_batchedUpdates(() => {
           setUser(username);
@@ -53,7 +54,7 @@ const App = () => {
       </header>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/post" render={() => <CreatePost />} />
+        <Route exact path="/post" render={() => <CreatePost user={user} />} />
         <Route exact path="/register" render={() => <Register />} />
         <Route
           exact path="/signin"

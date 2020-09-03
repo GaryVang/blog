@@ -29,7 +29,6 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
   };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
     console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchSignIn(URL_SIGNIN, username, password);
@@ -53,7 +52,9 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
   };
 
   const handleClear = (e) => {
-    resetUsernamePassword();
+    if (username !== "" || password !== "") {
+      resetUsernamePassword();
+    }
   };
 
   const usernameValidation = (str) => {
@@ -106,13 +107,13 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
             className="signin-input-password"
             type="text"
             id="password"
-            maxLength="20"
+            maxLength="60"
             value={password}
             onChange={onPasswordChange}
           />
           <span className="signin-button-wrapper">
             <input
-              className="signin-button button"
+              className="signin-button button sign-button-submit"
               type="Submit"
               value="Log In"
               onClick={handleSubmit}
