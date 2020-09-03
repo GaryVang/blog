@@ -12,7 +12,8 @@ const PostDisplayMulti = ({ query }) => {
 
   const firstLoad = useRef(true); //useRef used to prevent rerender on change
 
-  const [initialLoad] = useState(true);
+  //Removal test
+  // const [initialLoad] = useState(true);
   useEffect(() => {
     console.log("initial Load");
     if (firstLoad.current) {
@@ -46,7 +47,7 @@ const PostDisplayMulti = ({ query }) => {
     }
   };
 
-  const renderPosts = (enableFullView, disableFullView) => {
+  const renderPosts = (enableFullView) => {
     return postList.map((post) => {
       // console.log('post render');
       return (
@@ -54,7 +55,6 @@ const PostDisplayMulti = ({ query }) => {
           key={post.post_id}
           post={post}
           enableFullView={enableFullView}
-          disableFullView={disableFullView}
         />
       );
     });
@@ -79,9 +79,10 @@ const PostDisplayMulti = ({ query }) => {
         setPage((page) => page + 1);
         setPostList(result);
       });
-    } else {
-      //Do nothing
-    }
+    } 
+    // else {
+    //   //Do nothing
+    // }
   };
 
   const renderPostFullView = (post) => {
@@ -112,7 +113,7 @@ const PostDisplayMulti = ({ query }) => {
         {/* <button className="post-button-refresh" onClick={refreshPosts}>
           Refresh
         </button> */}
-        <label>{page}</label>
+        <input className='post-display-page' type="number" value={page} readonly disabled/>
         <button
           className="post-button-next"
           onClick={() => handleNextPage(page, postCount)}
@@ -121,7 +122,7 @@ const PostDisplayMulti = ({ query }) => {
           Forward
         </button>
       </div>
-      {postList ? renderPosts(enableFullView, disableFullView) : null}
+      {postList ? renderPosts(enableFullView) : null}
     </section>
   );
 };

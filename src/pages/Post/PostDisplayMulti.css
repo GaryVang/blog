@@ -1,7 +1,27 @@
 .post-display-multi-container {
-    /* display: inline-flex;
-    flex-direction: column;
+    width: 95%;
+}
+
+.post-button-wrapper {
+    display: inline-flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%; */
+}
+
+
+.post-display-page-test::-webkit-outer-spin-button,
+.post-display-page-test::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.post-display-page {
+    margin: 0 10px 0 10px;
+    -moz-appearance:textfield;
+    /* -webkit-appearance: textfield; */
+    /* appearance: textfield; */
+    background-color: white;
+    width: 20px;
+    min-width: 0;
+    text-align: center;
 }

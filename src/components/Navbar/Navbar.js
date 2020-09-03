@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ isLoggedIn, user, handleLogout }) => {
+
   return (
     <nav
       className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"}
     >
       {isLoggedIn ? (
-        <li className="nav-item-username">{user.username}</li>
+        <li className="nav-item-username nav-item">
+          <Link className="nav-link" to={`/user/${user.username}`}>{user.username}</Link>
+        </li>
       ) : null}
       <ul className="navbar">
         <li className="nav-item">
@@ -35,12 +38,12 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
                 Register
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" to="/user">
                 User Profile
               </Link>
-            </li>
-            
+            </li> */}
+
             {/* Remove after testing */}
             <li className="nav-item">
               <Link className="nav-link" to="/post">
@@ -61,6 +64,7 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
                 handleLogout();
               }}
             >
+              {/* //consider removing the redirect */}
               <Link className="nav-link" to="/signin">
                 Signout
               </Link>
@@ -69,34 +73,6 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
         )}
       </ul>
     </nav>
-
-    // <nav
-    //   className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"}
-    // >
-    //   {isLoggedIn ? <li className="nav-item-username">{user}</li> : null}
-    //   <ul className="navbar">
-    //     <li className="nav-item">Home</li>
-    //     <li className="nav-item">Blog</li>
-
-    //     {!isLoggedIn ? (
-    //       <React.Fragment>
-    //         <li className="nav-item">SignIn</li>
-    //         <li className="nav-item">Register</li>
-    //       </React.Fragment>
-    //     ) : null}
-
-    //     {isLoggedIn ? (
-    //       <li
-    //         className="nav-item"
-    //         onClick={() => {
-    //           setIsLoggedIn(false);
-    //         }}
-    //       >
-    //         Signout
-    //       </li>
-    //     ) : null}
-    //   </ul>
-    // </nav>
   );
 };
 

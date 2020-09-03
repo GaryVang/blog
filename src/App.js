@@ -8,7 +8,6 @@ import Home from "./pages/Home/Home";
 import UserProfile from "./pages/User/UserProfile";
 import SignIn from "./pages/SignIn/SignIn";
 import Register from "./pages/Register/Register";
-import Post from "./pages/Post/Post";
 import CreatePost from './pages/CreatePost/CreatePost';
 
 import { fetchIsLoggedIn, fetchLogout } from "./helpers/getData";

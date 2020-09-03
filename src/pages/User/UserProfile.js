@@ -47,7 +47,7 @@ const UserProfile = ({}) => {
   const renderUserProfile = () => {
     // return <article>{userProfile.username}</article>;
     return (
-      <article>
+      <article className='user-profile-container'>
         <UserInfoPanel user={userProfile} />
         <PostDisplayMulti query={`?username=${userProfile.username}`}/>
       </article>

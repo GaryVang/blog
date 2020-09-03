@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import "./PostPanelMini.css";
 
-const PostPanelMini = ({ post, enableFullView, disableFullView }) => {
+const PostPanelMini = ({ post, enableFullView }) => {
   console.log(post);
 
   const history = useHistory();
