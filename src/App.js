@@ -54,7 +54,7 @@ const App = () => {
       </header>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/post" render={() => <CreatePost user={user} />} />
+        <Route exact path="/post" render={() => <CreatePost user={user} setIsLoggedIn={setIsLoggedIn} />} />
         <Route exact path="/register" render={() => <Register />} />
         <Route
           exact path="/signin"

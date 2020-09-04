@@ -7,7 +7,10 @@ import "./CreatePost.css";
 
 const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
 
-const CreatePost = ({ user }) => {
+//Maybe just set isLoggedIn to false to allow the user to copy 
+// the blog post's content before it is lost during the login attempt
+
+const CreatePost = ({ user, setIsLoggedIn }) => {
   const x = console.log("Create Post");
 
   const [title, setTitle] = useState("");
@@ -45,6 +48,7 @@ const CreatePost = ({ user }) => {
       } else {
         console.log("Submission Failed: ", response.comment);
         alert("Submission Failed: " + response.comment);
+        setIsLoggedIn(false);
       }
     } else {
       console.log("Submission Failed: Please Fill All Fields");
