@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { unstable_batchedUpdates } from "react-dom";
+import { useHistory } from "react-router-dom";
 
-import { fetchSubmitPost } from "../../helpers/getData";
+import { fetchSubmitPost, fetchIsLoggedIn } from "../../helpers/getData";
 
 import "./CreatePost.css";
 
 const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
+const URL_AUTH = "http://localhost:3005/auth/";
 
-//Maybe just set isLoggedIn to false to allow the user to copy 
+//Maybe just set isLoggedIn to false to allow the user to copy
 // the blog post's content before it is lost during the login attempt
 
 const CreatePost = ({ user, setIsLoggedIn }) => {
   const x = console.log("Create Post");
+  const history = useHistory();
+  //-----------Auth------------------
+  useEffect(() => {
+    const checkIsLoggedIn = async () => {
+      const username = await fetchIsLoggedIn(URL_AUTH);
+      if (!username) {
+        alert("Please Sign in again.");
+        setIsLoggedIn(false);
+        history.push("/signin");
+      }
+    };
+    checkIsLoggedIn();
+  }, []);
+  //----------------------------------------
 
   const [title, setTitle] = useState("");
   const [textarea, setTextarea] = useState("");
