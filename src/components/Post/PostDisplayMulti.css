@@ -1,4 +1,5 @@
 .post-display-multi-container {
+    margin-top: 10px;
     width: 95%;
 }
 
@@ -18,10 +19,9 @@
 .post-display-page {
     margin: 0 10px 0 10px;
     -moz-appearance:textfield;
-    /* -webkit-appearance: textfield; */
-    /* appearance: textfield; */
     background-color: white;
     width: 20px;
     min-width: 0;
     text-align: center;
+    color: black;
 }

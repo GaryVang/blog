@@ -129,7 +129,8 @@ const fetchSubmitPost = async (url, post) => {
     .then((response) => response.json())
     .then((data) => (response = data));
 
-  return response.status;
+  // return response.status;
+  return response;
 };
 
 const fetchUserProfile = async (url, username) => {

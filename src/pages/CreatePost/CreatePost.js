@@ -32,16 +32,22 @@ const CreatePost = ({ user }) => {
       typeof textarea === "string" &&
       title &&
       textarea &&
-      (await fetchSubmitPost(URL_SUBMITPOST, {
+      user //In case state was access illegally
+    ) {
+      let response = await fetchSubmitPost(URL_SUBMITPOST, {
         title: title,
         content: textarea,
         user_id: user.user_id,
-      }))
-    ) {
-      console.log("submission successful");
-      resetFields();
+      });
+      if (response.status) {
+        console.log("Submission Successful");
+        resetFields();
+      } else {
+        console.log("Submission Failed: ", response.comment);
+        alert("Submission Failed: " + response.comment);
+      }
     } else {
-      console.log("submission failed");
+      console.log("Submission Failed: Please Fill All Fields");
     }
   };
 
