@@ -97,6 +97,8 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
               maxLength="50"
               value={title}
               onChange={onTitleChange}
+              autoFocus
+              required
             />
           </span>
 
@@ -105,7 +107,8 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
             placeholder="content..."
             value={textarea}
             onChange={onTextareaChange}
-          ></textarea>
+            required
+          />
 
           <span className="post-create-button-wrapper">
             <input

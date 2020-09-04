@@ -90,6 +90,8 @@ const Register = ({}) => {
             maxLength="20"
             value={username}
             onChange={onUsernameChange}
+            autoFocus
+            required
           />
 
           <label className="register-label-password" for="password">
@@ -102,6 +104,7 @@ const Register = ({}) => {
             maxLength="60"
             value={password}
             onChange={onPasswordChange}
+            required
           />
           <span className="register-button-wrapper">
             <input

@@ -98,6 +98,8 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
             maxLength="20"
             value={username}
             onChange={onUsernameChange}
+            autoFocus
+            required
           />
 
           <label className="signin-label-password" for="password">
@@ -110,6 +112,7 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
             maxLength="60"
             value={password}
             onChange={onPasswordChange}
+            required
           />
           <span className="signin-button-wrapper">
             <input
