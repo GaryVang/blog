@@ -34,6 +34,11 @@
   outline: 2px solid #3baaff;
 }
 
+.post-create-title:invalid,
+.post-create-textarea:invalid {
+  box-shadow: none;
+}
+
 .post-create-textarea {
   width: 60%;
   height: 150px;
@@ -52,9 +57,9 @@
 }
 
 .post-create-button-wrapper {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .post-button-submit {
-    margin-right: 5px;
+  margin-right: 5px;
 }

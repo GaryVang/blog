@@ -59,10 +59,11 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
         user_id: user.user_id,
       });
       if (response.status) {
-        console.log("Submission Successful");
-        resetFields();
+        // console.log("Submission Successful");
+        alert("Submission Successful");
+        resetFields(e);
       } else {
-        console.log("Submission Failed: ", response.comment);
+        // console.log("Submission Failed: ", response.comment);
         alert("Submission Failed: " + response.comment);
         setIsLoggedIn(false);
       }
@@ -71,7 +72,8 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
     }
   };
 
-  const resetFields = () => {
+  const resetFields = (e) => {
+    e.preventDefault();
     if (title !== "" || textarea !== "") {
       unstable_batchedUpdates(() => {
         setTitle("");

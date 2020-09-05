@@ -8,9 +8,7 @@ import "./Navbar.css";
 const Navbar = ({ isLoggedIn, user, handleLogout }) => {
 
   return (
-    <nav
-      className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"}
-    >
+    <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
       {isLoggedIn ? (
         <li className="nav-item-username nav-item">
           <Link className="nav-link" to={`/user/${user.username}`} >{user.username}</Link>
@@ -18,58 +16,24 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
       ) : null}
       <ul className="navbar">
         <li className="nav-item">
-          <Link className="nav-link" to="/" ><NavItemEffect />
-            Home
-          </Link>
+          <Link className="nav-link" to="/" ><NavItemEffect />Home</Link>
         </li>
-        {/* <li className="nav-item">
-          <Link className="nav-link" to="/blog">
-            Create a Post
-          </Link>
-        </li> */}
-
         {!isLoggedIn ? (
           <React.Fragment>
             <li className="nav-item">
-              <Link className="nav-link" to="/signin" ><NavItemEffect />
-                Sign in
-              </Link>
+              <Link className="nav-link" to="/signin" replace><NavItemEffect />Sign in</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/register"><NavItemEffect />
-                Register
-              </Link>
-            </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/user">
-                User Profile
-              </Link>
-            </li> */}
-
-            {/* Remove after testing */}
-            <li className="nav-item">
-              <Link className="nav-link" to="/post"><NavItemEffect />
-                Create a Post
-              </Link>
+              <Link className="nav-link" to="/register"><NavItemEffect />Register</Link>
             </li>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <li className="nav-item">
-              <Link className="nav-link" to="/post"><NavItemEffect />
-                Create a Post
-              </Link>
+              <Link className="nav-link" to="/post"><NavItemEffect />Create a Post</Link>
             </li>
-            <li
-              className="nav-item"
-              onClick={() => {
-                handleLogout();
-              }}
-            >
-              {/* //consider removing the redirect */}
-              <Link className="nav-link" to="/signin"><NavItemEffect />
-                Signout
-              </Link>
+            <li className="nav-item" onClick={() => { handleLogout(); }}>
+              <Link className="nav-link" ><NavItemEffect />Signout</Link>
             </li>
           </React.Fragment>
         )}

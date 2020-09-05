@@ -24,7 +24,6 @@
 
 .signin-input-username:focus,
 .signin-input-password:focus {
-    /* border: 2px solid #0c2233; */
     border: 2px solid #1e537c;
     -webkit-box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52); 
     box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 2px rgba(12,34,51,0.52);

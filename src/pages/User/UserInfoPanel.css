@@ -12,9 +12,7 @@
   width: 98%;
   height: 150px;
 
-  background-repeat: no-repeat;
   box-sizing: border-box;
-
   border-radius: 5px;
   box-shadow: 0 2px 7px 3px black;
   margin: 10px 0 10px 0;
@@ -25,6 +23,8 @@
     rgba(255, 255, 255, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   );
+
+  /* background-repeat: no-repeat; */
 }
 
 .user-info-banner {
@@ -40,9 +40,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
-  /* background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%); */
 
   box-sizing: border-box;
   border: 1px solid black;

@@ -29,10 +29,10 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Username: " + username, "Password: " + password);
+    // console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchSignIn(URL_SIGNIN, username, password);
-      console.log(33333333, result);
+      // console.log(33333333, result);
       if (result.status) {
         unstable_batchedUpdates(() => {
           setIsLoggedIn(true);

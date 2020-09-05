@@ -29,7 +29,7 @@ const Register = ({}) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Username: " + username, "Password: " + password);
+    // console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchRegister(URL_REGISTER, username, password);
       if (result.status) {
