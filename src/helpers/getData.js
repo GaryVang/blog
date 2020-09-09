@@ -63,7 +63,7 @@ const fetchSignIn = async (url, username, password) => {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
-    credentials: "same-site",
+    credentials: "include",
     headers: {
       "Content-type": "application/json",
     },
