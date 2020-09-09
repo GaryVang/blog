@@ -7,6 +7,8 @@ import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
 
+const URL_INITIALFETCH = process.env.API_URL;
+
 const PostDisplayMulti = ({ query }) => {
 
   const firstLoad = useRef(true); //useRef used to prevent rerender on change
@@ -14,7 +16,7 @@ const PostDisplayMulti = ({ query }) => {
   useEffect(() => {
     if (firstLoad.current) {
       const initialDataFetch = async () => {
-        const result = await fetchHomeInitial("http://localhost:3005/" + (query ? query : ""));
+        const result = await fetchHomeInitial(URL_INITIALFETCH + (query ? query : ""));
         if (result.postList) {
           unstable_batchedUpdates(() => {
             setPostCount(result.postCount);

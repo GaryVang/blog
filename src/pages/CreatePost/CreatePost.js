@@ -12,8 +12,11 @@ import { fetchSubmitPost, fetchIsLoggedIn } from "../../helpers/getData";
 
 import "./CreatePost.css";
 
-const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
-const URL_AUTH = "http://localhost:3005/auth/";
+// const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
+// const URL_AUTH = "http://localhost:3005/auth/";
+
+const URL_SUBMITPOST = process.env.API_URL + "submitPost/";
+const URL_AUTH = process.env.API_URL + "auth/";
 
 const CreatePost = ({ user, setIsLoggedIn }) => {
   const history = useHistory();

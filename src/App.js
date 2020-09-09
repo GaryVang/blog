@@ -15,8 +15,10 @@ import { fetchIsLoggedIn, fetchLogout } from "./helpers/getData";
 
 import "./App.css";
 
-const URL_LOGOUT = "http://localhost:3005/logout";
-const URL_AUTH = "http://localhost:3005/auth/";
+// const URL_LOGOUT = "http://localhost:3005/logout";
+const URL_LOGOUT = process.env.API_URL+"logout";
+// const URL_AUTH = "http://localhost:3005/auth/";
+const URL_AUTH = process.env.API_URL + "auth/";
 
 const App = () => {
   const history = useHistory();
