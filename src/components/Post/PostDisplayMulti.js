@@ -7,7 +7,8 @@ import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
 
-const URL_INITIALFETCH = process.env.API_URL;
+// const URL_INITIALFETCH = process.env.API_URL;
+const URL_INITIALFETCH = "https://blog-api-1123.herokuapp.com/";
 
 const PostDisplayMulti = ({ query }) => {
 
