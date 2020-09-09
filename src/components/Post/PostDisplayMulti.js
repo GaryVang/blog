@@ -38,7 +38,7 @@ const PostDisplayMulti = ({ query }) => {
   });
 
   const getPosts = async (page) => {
-    let result = await fetchPosts(`http://localhost:3005/getPosts/${page}` + (query ? query : ""));
+    let result = await fetchPosts(`https://blog-api-1123.herokuapp.com/${page}` + (query ? query : ""));
     if (result) {
       return result;
     }

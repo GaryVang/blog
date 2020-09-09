@@ -7,7 +7,7 @@ import { fetchRegister } from "../../helpers/getData";
 import "./Register.css";
 
 // const URL_REGISTER = "http://localhost:3005/register";
-const URL_REGISTER = process.env.API_URL + "register";
+const URL_REGISTER = "https://blog-api-1123.herokuapp.com/" + "register";
 
 const Register = ({}) => {
   const [username, setUsername] = useState("");

@@ -7,9 +7,11 @@ import { fetchSignIn } from "../../helpers/getData";
 import "./SignIn.css";
 
 // const URL_SIGNIN = "http://localhost:3005/signin";
-const URL_SIGNIN = process.env.API_URL + "signin";
+const URL_SIGNIN = "https://blog-api-1123.herokuapp.com/" + "signin";
 
 const SignIn = ({ setIsLoggedIn, setUser }) => {
+
+  console.log('url: ', URL_SIGNIN);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
