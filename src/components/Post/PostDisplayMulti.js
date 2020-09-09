@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { unstable_batchedUpdates } from "react-dom";
 
 import PostPanelMini from "./PostPanelMini";
-import { fetchHomeInitial, fetchPosts } from "../../helpers/getData";
+import { fetchHomeInitial, fetchPosts } from "../../helpers/getData.js";
 import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
