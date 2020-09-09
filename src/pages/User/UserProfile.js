@@ -43,7 +43,13 @@ const UserProfile = ({}) => {
   };
 
   const render404 = () => {
-    return <article>Sorry, no Blogger goes by that name.</article>;
+    return (
+      <article>
+        <header>
+          <h1 className='user-profile-pnf'>Sorry, no Blogger goes by that name.</h1>
+        </header>
+      </article>
+    );
   };
 
   return renderSwitch();

@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.user-profile-pnf {
+    text-shadow: 0 0 2px #ffffff;
+}

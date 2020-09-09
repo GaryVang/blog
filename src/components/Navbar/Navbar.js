@@ -11,26 +11,26 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
     <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
       {isLoggedIn ? (
         <li className="nav-item-username nav-item">
-          <Link className="nav-link" to={`/user/${user.username}`} >{user.username}</Link>
+          <Link className="nav-link" exact to={`/user/${user.username}`} >{user.username}</Link>
         </li>
       ) : null}
       <ul className="navbar">
         <li className="nav-item">
-          <Link className="nav-link" to="/" ><NavItemEffect />Home</Link>
+          <Link className="nav-link" exact to="/" ><NavItemEffect />Home</Link>
         </li>
         {!isLoggedIn ? (
           <React.Fragment>
             <li className="nav-item">
-              <Link className="nav-link" to="/signin" replace><NavItemEffect />Sign in</Link>
+              <Link className="nav-link" exact to="/signin" ><NavItemEffect />Sign in</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/register"><NavItemEffect />Register</Link>
+              <Link className="nav-link" exact to="/register" ><NavItemEffect />Register</Link>
             </li>
           </React.Fragment>
         ) : (
           <React.Fragment>
             <li className="nav-item">
-              <Link className="nav-link" to="/post"><NavItemEffect />Create a Post</Link>
+              <Link className="nav-link" exact to="/post" ><NavItemEffect />Create a Post</Link>
             </li>
             <li className="nav-item" onClick={() => { handleLogout(); }}>
               <Link className="nav-link" ><NavItemEffect />Signout</Link>

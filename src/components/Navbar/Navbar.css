@@ -30,6 +30,18 @@
     cursor: pointer;
 }
 
+/* -------NavLink CSS---------- */
+/* .nav-link:focus {
+    background: rgb(97, 97, 0);
+}
+
+.nav-active {
+    background: none !important;
+    border-bottom: 1px solid red;
+    box-sizing: border-box;
+} */
+/* ----------End NavLink CSS--------- */
+
 .nav-link {
     text-decoration: none;
     color: white;
