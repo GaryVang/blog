@@ -9,8 +9,6 @@ import "./Register.css";
 const URL_REGISTER = "http://localhost:3005/register";
 
 const Register = ({}) => {
-  const x = console.log("Register");
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,7 +27,6 @@ const Register = ({}) => {
   };
 
   const handleSubmit = async (e) => {
-    // console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchRegister(URL_REGISTER, username, password);
       if (result.status) {

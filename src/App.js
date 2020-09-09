@@ -20,7 +20,7 @@ const URL_AUTH = "http://localhost:3005/auth/";
 
 const App = () => {
   const history = useHistory();
-  console.log("App");
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const checkIsLoggedIn = async () => {
@@ -58,12 +58,12 @@ const App = () => {
       <Switch> 
         <Route exact path="/" render={() => <Home />} />
         <Route exact path="/user/:username" render={() => <UserProfile />} />
-        {/* Double ternary because Switch's children can only be either Route or Redirect */}
-        {/* Creating a HOC is another solution */}
+        {/* Double ternary because Switch's children can only be either Route or Redirect; Creating a HOC is another solution */}
         {!isLoggedIn ? <Route exact path="/register" render={() => <Register />} />
           : <Route exact path="/post" render={() => <CreatePost user={user} setIsLoggedIn={setIsLoggedIn} />} /> 
         }
-        {!isLoggedIn ? <Route exact path="/signin" render={() => (<SignIn setIsLoggedIn={setIsLoggedIn} setUser={setUser} />)} />: null}
+        {!isLoggedIn ? <Route exact path="/signin" render={() => (<SignIn setIsLoggedIn={setIsLoggedIn} setUser={setUser} />)} />
+          : null}
         <Route exact path="/user/:username" render={() => <UserProfile />} />
         <Route component={PageNotFound} />
       </Switch>

@@ -6,9 +6,7 @@ const PageNotFound = ({}) => {
   return (
     <section className="pnf-container">
       <header>
-        <h1 className="pnf-header">
-          Sorry! Page Not Found
-        </h1>
+        <h1 className="pnf-header">Sorry! Page Not Found</h1>
       </header>
     </section>
   );

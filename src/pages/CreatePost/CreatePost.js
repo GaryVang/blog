@@ -1,3 +1,9 @@
+//---------Comments-------------------------------------------------
+//Maybe just set isLoggedIn to false to allow the user to copy
+// the blog post's content before it is lost during transition to the sign in page
+//A single console.log was purposely left intact as a placeholder for a more appropriate response handling
+// for the frontend's rejection of the post submission.
+//-----------------------------------------------------------------
 import React, { useState, useEffect } from "react";
 import { unstable_batchedUpdates } from "react-dom";
 import { useHistory } from "react-router-dom";
@@ -9,11 +15,7 @@ import "./CreatePost.css";
 const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
 const URL_AUTH = "http://localhost:3005/auth/";
 
-//Maybe just set isLoggedIn to false to allow the user to copy
-// the blog post's content before it is lost during the login attempt
-
 const CreatePost = ({ user, setIsLoggedIn }) => {
-  const x = console.log("Create Post");
   const history = useHistory();
   //-----------Auth------------------
   useEffect(() => {
@@ -45,7 +47,6 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
   };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
     if (
       typeof title === "string" &&
       typeof textarea === "string" &&
@@ -59,16 +60,14 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
         user_id: user.user_id,
       });
       if (response.status) {
-        // console.log("Submission Successful");
         alert("Submission Successful");
         resetFields(e);
       } else {
-        // console.log("Submission Failed: ", response.comment);
         alert("Submission Failed: " + response.comment);
         setIsLoggedIn(false);
       }
     } else {
-      console.log("Submission Failed: Please Fill All Fields");
+      // console.log("Submission Failed: Please Fill All Fields");
     }
   };
 

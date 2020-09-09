@@ -12,7 +12,6 @@ const URL_USERPROFILE = "http://localhost:3005/user/";
 
 const UserProfile = ({}) => {
   const username = useParams().username;
-  const x = console.log("User Profile: ", username);
 
   const [userProfile, setUserProfile] = useState(false);
   useEffect(() => {

@@ -1,3 +1,5 @@
+//Placeholder for future data fetching hook
+
 import React, { useState, useEffect } from "react";
 
 const useFetchPost = (url) => {

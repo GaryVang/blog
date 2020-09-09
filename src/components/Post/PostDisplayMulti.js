@@ -8,17 +8,11 @@ import PostOverlay from "./PostOverlay";
 import "./PostDisplayMulti.css";
 
 const PostDisplayMulti = ({ query }) => {
-  console.log("Post Multi");
 
   const firstLoad = useRef(true); //useRef used to prevent rerender on change
 
-  //Removal test
-  // const [initialLoad] = useState(true);
   useEffect(() => {
-    console.log("initial Load");
     if (firstLoad.current) {
-      console.log("useRef: ", firstLoad);
-      console.log("useRef current: ", firstLoad.current);
       const initialDataFetch = async () => {
         const result = await fetchHomeInitial("http://localhost:3005/" + (query ? query : ""));
         if (result.postList) {
@@ -49,7 +43,6 @@ const PostDisplayMulti = ({ query }) => {
 
   const renderPosts = (enableFullView) => {
     return postList.map((post) => {
-      // console.log('post render');
       return (
         <PostPanelMini
           key={post.post_id}
@@ -67,9 +60,7 @@ const PostDisplayMulti = ({ query }) => {
         setPage((page) => page - 1);
         setPostList(result);
       });
-    } else if (page === 1) {
-      //Do nothing
-    }
+    } 
   };
 
   const handleNextPage = async (page, postCount) => {
@@ -80,9 +71,6 @@ const PostDisplayMulti = ({ query }) => {
         setPostList(result);
       });
     } 
-    // else {
-    //   //Do nothing
-    // }
   };
 
   const renderPostFullView = (post) => {
@@ -110,9 +98,6 @@ const PostDisplayMulti = ({ query }) => {
         >
           Previous
         </button>
-        {/* <button className="post-button-refresh" onClick={refreshPosts}>
-          Refresh
-        </button> */}
         <input className='post-display-page' type="number" value={page} readonly disabled/>
         <button
           className="post-button-next"

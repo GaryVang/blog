@@ -129,7 +129,6 @@ const fetchSubmitPost = async (url, post) => {
     .then((response) => response.json())
     .then((data) => (response = data));
 
-  // return response.status;
   return response;
 };
 

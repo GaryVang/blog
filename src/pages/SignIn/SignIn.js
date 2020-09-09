@@ -9,7 +9,6 @@ import "./SignIn.css";
 const URL_SIGNIN = "http://localhost:3005/signin";
 
 const SignIn = ({ setIsLoggedIn, setUser }) => {
-  const x = console.log("SignIn");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,10 +28,8 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
   };
 
   const handleSubmit = async (e) => {
-    // console.log("Username: " + username, "Password: " + password);
     if (usernameValidation(username) && passwordValidation(password)) {
       let result = await fetchSignIn(URL_SIGNIN, username, password);
-      // console.log(33333333, result);
       if (result.status) {
         unstable_batchedUpdates(() => {
           setIsLoggedIn(true);

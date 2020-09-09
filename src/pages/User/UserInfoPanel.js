@@ -3,11 +3,6 @@ import React from "react";
 import "./UserInfoPanel.css";
 
 const UserInfoPanel = ({ user }) => {
-  console.log('User Info Panel');
-  if (user) {
-    console.log("user info: ", user);
-  }
-
   return !user ? null : (
     <section className="user-info-container">
       <section className="user-info-top-wrapper">

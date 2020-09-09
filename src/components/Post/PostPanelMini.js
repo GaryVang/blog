@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import "./PostPanelMini.css";
 
 const PostPanelMini = ({ post, enableFullView }) => {
-  console.log(post);
-
   const history = useHistory();
 
   const handleUsernameClick = (e) => {
