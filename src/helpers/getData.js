@@ -149,7 +149,18 @@ const fetchUserProfile = async (url, username) => {
   return response;
 };
 
-module.exports = {
+// module.exports = {
+//   fetchIsLoggedIn,
+//   fetchHomeInitial,
+//   fetchPosts,
+//   fetchSignIn,
+//   fetchRegister,
+//   fetchLogout,
+//   fetchSubmitPost,
+//   fetchUserProfile,
+// };
+
+export {
   fetchIsLoggedIn,
   fetchHomeInitial,
   fetchPosts,
@@ -157,5 +168,5 @@ module.exports = {
   fetchRegister,
   fetchLogout,
   fetchSubmitPost,
-  fetchUserProfile,
+  fetchUserProfile
 };
