@@ -7,8 +7,11 @@ import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
 
-// const URL_INITIALFETCH = process.env.API_URL;
-const URL_INITIALFETCH = "https://blog-api-1123.herokuapp.com/";
+const URL_FETCHPOSTS = "http://localhost:3005/getPosts/";
+const URL_INITIALFETCH = "http://localhost:3005/";
+// const URL_INITIALFETCH = "https://blog-api-1123.herokuapp.com/";
+// const URL_FETCHPOSTS = "https://blog-api-1123.herokuapp.com/getPosts/";
+
 
 const PostDisplayMulti = ({ query }) => {
 
@@ -38,7 +41,7 @@ const PostDisplayMulti = ({ query }) => {
   });
 
   const getPosts = async (page) => {
-    let result = await fetchPosts(`https://blog-api-1123.herokuapp.com/getPosts/${page}` + (query ? query : ""));
+    let result = await fetchPosts(URL_FETCHPOSTS + page + (query ? query : ""));
     if (result) {
       return result;
     }
