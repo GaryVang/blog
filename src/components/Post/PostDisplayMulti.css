@@ -11,10 +11,11 @@
 }
 
 
-.post-display-page-test::-webkit-outer-spin-button,
-.post-display-page-test::-webkit-inner-spin-button {
+.post-display-page::-webkit-outer-spin-button,
+.post-display-page::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+
 
 .post-display-page {
     margin: 0 10px 0 10px;
