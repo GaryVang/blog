@@ -15,10 +15,10 @@ import { fetchIsLoggedIn, fetchLogout } from "./helpers/getData";
 
 import "./App.css";
 
-const URL_LOGOUT = "http://localhost:3005/logout";
-// const URL_LOGOUT = "https://blog-api-1123.herokuapp.com/"+"logout";
-const URL_AUTH = "http://localhost:3005/auth/";
-// const URL_AUTH = "https://blog-api-1123.herokuapp.com/" + "auth/";
+// const URL_LOGOUT = "http://localhost:3005/logout";
+const URL_LOGOUT = "https://blog-api-1123.herokuapp.com/"+"logout";
+// const URL_AUTH = "http://localhost:3005/auth/";
+const URL_AUTH = "https://blog-api-1123.herokuapp.com/" + "auth/";
 
 const App = () => {
   const history = useHistory();

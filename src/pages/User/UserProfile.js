@@ -8,8 +8,8 @@ import PostDisplayMulti from "../../components/Post/PostDisplayMulti";
 
 import "./UserProfile.css";
 
-const URL_USERPROFILE = "http://localhost:3005/user/";
-// const URL_USERPROFILE = "https://blog-api-1123.herokuapp.com/" + "user/";
+// const URL_USERPROFILE = "http://localhost:3005/user/";
+const URL_USERPROFILE = "https://blog-api-1123.herokuapp.com/" + "user/";
 
 const UserProfile = ({}) => {
   const username = useParams().username;

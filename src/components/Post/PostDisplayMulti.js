@@ -7,10 +7,10 @@ import PostOverlay from "./PostOverlay";
 
 import "./PostDisplayMulti.css";
 
-const URL_FETCHPOSTS = "http://localhost:3005/getPosts/";
-const URL_INITIALFETCH = "http://localhost:3005/";
-// const URL_INITIALFETCH = "https://blog-api-1123.herokuapp.com/";
-// const URL_FETCHPOSTS = "https://blog-api-1123.herokuapp.com/getPosts/";
+// const URL_FETCHPOSTS = "http://localhost:3005/getPosts/";
+// const URL_INITIALFETCH = "http://localhost:3005/";
+const URL_INITIALFETCH = "https://blog-api-1123.herokuapp.com/";
+const URL_FETCHPOSTS = "https://blog-api-1123.herokuapp.com/getPosts/";
 
 
 const PostDisplayMulti = ({ query }) => {
