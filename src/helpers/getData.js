@@ -1,6 +1,9 @@
-const fetchIsLoggedIn = async (url) => {
+const URL_API = "http://localhost:3005/";
+// const URL_API = "https://blog-api-1123.herokuapp.com/";
+
+const fetchIsLoggedIn = async () => {
   let user;
-  await fetch(url, {
+  await fetch(URL_API + "auth/", {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -18,9 +21,9 @@ const fetchIsLoggedIn = async (url) => {
   return user;
 };
 
-const fetchHomeInitial = async (url) => {
+const fetchHomeInitial = async (query) => {
   let result;
-  await fetch(url, {
+  await fetch(URL_API + query, {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -34,9 +37,9 @@ const fetchHomeInitial = async (url) => {
   return result;
 };
 
-const fetchPosts = async (url) => {
+const fetchPosts = async (page, query) => {
   let result;
-  await fetch(url, {
+  await fetch(URL_API + "getPosts/" + page + query, {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -57,9 +60,9 @@ const fetchPosts = async (url) => {
   return result;
 };
 
-const fetchSignIn = async (url, username, password) => {
+const fetchSignIn = async (username, password) => {
   let response;
-  await fetch(url, {
+  await fetch(URL_API + 'signin', {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
@@ -80,9 +83,9 @@ const fetchSignIn = async (url, username, password) => {
   return response;
 };
 
-const fetchRegister = async (url, username, password) => {
+const fetchRegister = async (username, password) => {
   let response;
-  await fetch(url, {
+  await fetch(URL_API + "register", {
     method: "PUT",
     mode: "cors",
     cache: "no-cache",
@@ -100,8 +103,8 @@ const fetchRegister = async (url, username, password) => {
   return response;
 };
 
-const fetchLogout = async (url) => {
-  await fetch(url, {
+const fetchLogout = async () => {
+  await fetch(URL_API + "logout", {
     method: "GET",
     mode: "cors",
     cache: "no-cache",
@@ -114,9 +117,9 @@ const fetchLogout = async (url) => {
     .then(console.log);
 };
 
-const fetchSubmitPost = async (url, post) => {
+const fetchSubmitPost = async (post) => {
   let response;
-  await fetch(url, {
+  await fetch(URL_API + "submitPost/", {
     method: "PUT",
     mode: "cors",
     cache: "no-cache",
@@ -132,9 +135,9 @@ const fetchSubmitPost = async (url, post) => {
   return response;
 };
 
-const fetchUserProfile = async (url, username) => {
+const fetchUserProfile = async (username) => {
   let response;
-  await fetch(url + username, {
+  await fetch(URL_API + "user/" + username, {
     method: "GET",
     mode: "cors",
     cache: "no-cache",

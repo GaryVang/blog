@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 
 import NavItemEffect from './NavItemEffect';
 
+import MenuIcon from '@material-ui/icons/Menu';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
 import "./Navbar.css";
 
 const Navbar = ({ isLoggedIn, user, handleLogout }) => {
 
   return (
     <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
+      <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div>
+      <div className="navbar-search">Search</div>
+      <MenuIcon className="navbar-menu-icon" color="secondary"/>
+
       {isLoggedIn ? (
         <li className="nav-item-username nav-item">
           <Link className="nav-link" exact to={`/user/${user.username}`} >{user.username}</Link>

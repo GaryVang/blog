@@ -29,7 +29,7 @@ const Register = ({}) => {
 
   const handleSubmit = async (e) => {
     if (usernameValidation(username) && passwordValidation(password)) {
-      let result = await fetchRegister(URL_REGISTER, username, password);
+      let result = await fetchRegister(username, password);
       if (result.status) {
         resetUsernamePassword();
         history.push("/signin");

@@ -17,7 +17,7 @@ const UserProfile = ({}) => {
   const [userProfile, setUserProfile] = useState(false);
   useEffect(() => {
     const getUserProfile = async () => {
-      const user = await fetchUserProfile(URL_USERPROFILE, username);
+      const user = await fetchUserProfile(username);
       setUserProfile(user);
     };
     getUserProfile();

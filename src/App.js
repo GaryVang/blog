@@ -26,7 +26,8 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const checkIsLoggedIn = async () => {
-      const username = await fetchIsLoggedIn(URL_AUTH);
+      // const username = await fetchIsLoggedIn(URL_AUTH);
+      const username = await fetchIsLoggedIn();
       if (username) {
         unstable_batchedUpdates(() => {
           setUser(username);
@@ -40,7 +41,7 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   const handleLogout = async () => {
-    await fetchLogout(URL_LOGOUT);
+    await fetchLogout();
     unstable_batchedUpdates(() => {
       setUser(false);
       setIsLoggedIn(false);

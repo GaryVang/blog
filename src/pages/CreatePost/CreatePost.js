@@ -57,7 +57,7 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
       textarea &&
       user //In case state was access illegally
     ) {
-      let response = await fetchSubmitPost(URL_SUBMITPOST, {
+      let response = await fetchSubmitPost({
         title: title,
         content: textarea,
         user_id: user.user_id,

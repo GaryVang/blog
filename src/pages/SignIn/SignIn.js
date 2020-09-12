@@ -30,7 +30,7 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
 
   const handleSubmit = async (e) => {
     if (usernameValidation(username) && passwordValidation(password)) {
-      let result = await fetchSignIn(URL_SIGNIN, username, password);
+      let result = await fetchSignIn(username, password);
       if (result.status) {
         unstable_batchedUpdates(() => {
           setIsLoggedIn(true);

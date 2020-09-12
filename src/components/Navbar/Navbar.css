@@ -1,5 +1,6 @@
 .navbar-container {
     justify-content: flex-end;
+    align-items: center;
 }
 
 .navbar-container-loggedin {
@@ -11,6 +12,29 @@
     width: 100%;
     background-color: #08141e;
     /* min-width: 400px; */
+}
+
+.navbar-username {
+    color: white;
+}
+
+.navbar-test {
+    display: flex;
+}
+
+.navbar-search {
+    color: white;
+}
+
+.navbar-menu-icon {
+    /* display: none !important; */
+    
+}
+
+@media (max-width: 700px) {
+    .navbar-menu-icon {
+        display: none !important;
+    }
 }
 
 .navbar {

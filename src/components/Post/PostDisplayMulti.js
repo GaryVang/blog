@@ -20,7 +20,7 @@ const PostDisplayMulti = ({ query }) => {
   useEffect(() => {
     if (firstLoad.current) {
       const initialDataFetch = async () => {
-        const result = await fetchHomeInitial(URL_INITIALFETCH + (query ? query : ""));
+        const result = await fetchHomeInitial((query ? query : ""));
         if (result.postList) {
           unstable_batchedUpdates(() => {
             setPostCount(result.postCount);
@@ -41,7 +41,7 @@ const PostDisplayMulti = ({ query }) => {
   });
 
   const getPosts = async (page) => {
-    let result = await fetchPosts(URL_FETCHPOSTS + page + (query ? query : ""));
+    let result = await fetchPosts(page, (query ? query : ""));
     if (result) {
       return result;
     }
