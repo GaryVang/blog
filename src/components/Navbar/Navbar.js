@@ -7,14 +7,29 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import "./Navbar.css";
+import { red } from "@material-ui/core/colors";
 
 const Navbar = ({ isLoggedIn, user, handleLogout }) => {
 
   return (
     <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
-      <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div>
-      <div className="navbar-search">Search</div>
-      <MenuIcon className="navbar-menu-icon" color="secondary"/>
+      {/* <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div> */}
+      <details className="navbar-menu-user" open="">
+        <summary className="test35" >Godly<ArrowDropDownIcon color="secondary"/></summary>
+        <div className="navbar-dropdown-menu">
+          <ul className='dropdown-menu-ul'>
+            <li><NavItemEffect className="test4"/>Profile</li>
+            <li>Dashboard</li>
+            <li>Signout</li>
+          </ul>
+        </div>
+      </details>
+      
+      {/* <div className="navbar-search">Search</div> */}
+      <button className='navbar-menu-toggle-nav'>
+        <MenuIcon  fontSize="large" className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false" />
+      </button>
+      {/* <MenuIcon className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false"/> */}
 
       {isLoggedIn ? (
         <li className="nav-item-username nav-item">
