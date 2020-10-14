@@ -105,7 +105,7 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
           </label>
           <input
             className="signin-input-password"
-            type="text"
+            type="password"
             id="password"
             maxLength="60"
             value={password}

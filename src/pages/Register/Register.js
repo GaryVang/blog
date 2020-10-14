@@ -97,7 +97,7 @@ const Register = ({}) => {
           </label>
           <input
             className="register-input-password"
-            type="text"
+            type="password"
             id="password"
             maxLength="60"
             value={password}
