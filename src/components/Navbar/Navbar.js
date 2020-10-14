@@ -18,7 +18,7 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
       {/* <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div> */}
       
       {/* ----------- */}
-      {/* <details className="navbar-menu-user" open="">
+      <details className="navbar-menu-user" open="">
         <summary className="test35" >Godly<ArrowDropDownIcon color="secondary"/></summary>
         <div className="navbar-dropdown-menu">
           <ul className='dropdown-menu-ul'>
@@ -29,13 +29,13 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
         </div>
       </details>
       
-     
+      {/* <div className="navbar-search">Search</div> */}
       <button className='navbar-menu-toggle-nav'>
         <MenuIcon  fontSize="large" className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false" />
-      </button> */}
+      </button>
       {/* -------- */}
       {/* <MenuIcon className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false"/> */}
-       {/* <div className="navbar-search">Search</div> */}
+      
       {/* Dropdown for logged-in users------------------------------------------ */}
       
       {isLoggedIn ? (
