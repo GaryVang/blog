@@ -1,5 +1,5 @@
-const URL_API = "http://localhost:3005/";
-// const URL_API = "https://blog-api-1123.herokuapp.com/";
+// const URL_API = "http://localhost:3005/";
+const URL_API = "https://blog-api-1123.herokuapp.com/";
 
 const fetchIsLoggedIn = async () => {
   let user;
