@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavItemEffect from './NavItemEffect';
@@ -11,6 +11,16 @@ import { red } from "@material-ui/core/colors";
 
 const Navbar = ({ isLoggedIn, user, handleLogout }) => {
 
+  const [userMenuHover, setUserMenuHover] = useState(false);
+
+  const handleOnUserMenuHover = () => {
+    setUserMenuHover(true);
+  };
+
+  const handleOnUserMenuExit = () => {
+    setUserMenuHover(false);
+  };
+
   return (
     <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
       
@@ -18,7 +28,7 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
       {/* <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div> */}
       
       {/* ----------- */}
-      <details className="navbar-menu-user" open="">
+      <details className="navbar-menu-user" open={userMenuHover} onMouseEnter={handleOnUserMenuHover} onMouseLeave={handleOnUserMenuExit}>
         <summary className="test35" >Godly<ArrowDropDownIcon color="secondary"/></summary>
         <div className="navbar-dropdown-menu">
           <ul className='dropdown-menu-ul'>
