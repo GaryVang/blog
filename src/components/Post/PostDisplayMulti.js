@@ -99,7 +99,7 @@ const PostDisplayMulti = ({ query }) => {
       <div className="post-button-wrapper">
         <button
           className="post-button-previous"
-          onClick={() => handlePrevPage(page)}
+          onClick={async () => await handlePrevPage(page)}
           disabled={page > 1 ? false : true}
         >
           Previous
@@ -107,7 +107,7 @@ const PostDisplayMulti = ({ query }) => {
         <input className='post-display-page' type="number" value={page} readonly disabled/>
         <button
           className="post-button-next"
-          onClick={() => handleNextPage(page, postCount)}
+          onClick={async () => await handleNextPage(page, postCount)}
           disabled={postCount / 5 > page ? false : true}
         >
           Forward
