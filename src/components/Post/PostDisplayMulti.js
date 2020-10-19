@@ -59,7 +59,8 @@ const PostDisplayMulti = ({ query }) => {
     });
   };
 
-  const handlePrevPage = async (page) => {
+  // const handlePrevPage = async (page) => {
+  const handlePrevPage = async () => {
     if (page > 1) {
       let result = await getPosts(page - 1);
       unstable_batchedUpdates(() => {
@@ -69,7 +70,8 @@ const PostDisplayMulti = ({ query }) => {
     } 
   };
 
-  const handleNextPage = async (page, postCount) => {
+  // const handleNextPage = async (page, postCount) => {
+  const handleNextPage = async (postCount) => {
     if (postCount / 5 > page) {
       let result = await getPosts(page + 1);
       unstable_batchedUpdates(() => {
@@ -99,7 +101,8 @@ const PostDisplayMulti = ({ query }) => {
       <div className="post-button-wrapper">
         <button
           className="post-button-previous"
-          onClick={() => handlePrevPage(page)}
+          // onClick={() => handlePrevPage(page)}
+          onClick={() => handlePrevPage()}
           disabled={page > 1 ? false : true}
         >
           Previous
@@ -107,7 +110,8 @@ const PostDisplayMulti = ({ query }) => {
         <input className='post-display-page' type="number" value={page} readonly disabled/>
         <button
           className="post-button-next"
-          onClick={() => handleNextPage(page, postCount)}
+          // onClick={() => handleNextPage(page, postCount)}
+          onClick={() => handleNextPage(postCount)}
           disabled={postCount / 5 > page ? false : true}
         >
           Forward
