@@ -60,7 +60,7 @@ const PostDisplayMulti = ({ query }) => {
   };
 
   const handlePrevPage = async (page) => {
-    if (page !== 1) {
+    if (page > 1) {
       let result = await getPosts(page - 1);
       unstable_batchedUpdates(() => {
         setPage((page) => page - 1);
@@ -100,7 +100,7 @@ const PostDisplayMulti = ({ query }) => {
         <button
           className="post-button-previous"
           onClick={() => handlePrevPage(page)}
-          disabled={page !== 1 ? false : true}
+          disabled={page > 1 ? false : true}
         >
           Previous
         </button>

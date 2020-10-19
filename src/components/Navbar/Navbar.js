@@ -24,54 +24,13 @@ const Navbar = ({ isLoggedIn, user, handleLogout }) => {
   return (
     <nav className={!isLoggedIn ? "navbar-container" : "navbar-container-loggedin"} >
       
-      {/* ----------------------------- */}
-      {/* <div className="navbar-username"><span className="navbar-test">Username<ArrowDropDownIcon color="secondary"/></span></div> */}
-      
-      {/* ----------- */}
-      {/* <details className="navbar-menu-user" open={userMenuHover} onMouseEnter={handleOnUserMenuHover} onMouseLeave={handleOnUserMenuExit}>
-        <summary className="details-summary" >Godly<ArrowDropDownIcon color="secondary"/></summary>
-        <div className="navbar-dropdown-menu">
-          <ul className='dropdown-menu-ul'>
-            <li><NavItemEffect className="dropdown-menu-effect"/>Profile</li>
-            <li>Dashboard</li>
-            <li>Signout</li>
-            <li className="" onClick={() => { handleLogout(); }}>
-              Signout2
+      {/* -----------Collapsed Nav Menu Icon------------ */}
+          {/* <button className='navbar-menu-toggle-nav'>
+            <MenuIcon  fontSize="large" className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false" />
+          </button>
 
-            </li>
-          </ul>
-        </div>
-      </details> */}
-      
-  
-      {/* <button className='navbar-menu-toggle-nav'>
-        <MenuIcon  fontSize="large" className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false" />
-      </button> */}
-      {/* -------- */}
-      {/* <MenuIcon className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false"/> */}
-      
-      {/* Dropdown for logged-in users------------------------------------------ */}
-      
-      {/* {isLoggedIn ? (
-        // <li className="nav-item-username nav-item">
-        //   <Link className="nav-link" exact to={`/user/${user.username}`} >{user.username}</Link>
-        // </li>
-        <details className="navbar-menu-user" open={userMenuHover} onMouseEnter={handleOnUserMenuHover} onMouseLeave={handleOnUserMenuExit}>
-          <summary className="details-summary" >{user.username}<ArrowDropDownIcon color="secondary"/></summary>
-          <div className="navbar-dropdown-menu">
-            <ul className='dropdown-menu-ul'>
-              <li><NavItemEffect className="dropdown-menu-effect"/>Effect - OnClick</li>
-              <li>
-                <Link className="dropdown-menu-link" exact to={`/user/${user.username}`} ><NavItemEffect />My Blog</Link>
-              </li>
-              <li>Dashboard - Under Construction</li>
-              <li className="" onClick={() => { handleLogout(); handleOnUserMenuExit();}}>
-                Signout
-              </li>
-            </ul>
-          </div>
-        </details>
-      ) : null} */}
+          <MenuIcon className="navbar-menu-icon" color="secondary" aria-label="toggle-navigation" aria-expanded="false"/> */}
+      {/* ----------------------     */}
       
       <ul className="navbar">
         <li className="nav-item">

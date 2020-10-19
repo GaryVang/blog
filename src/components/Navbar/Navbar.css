@@ -16,23 +16,33 @@
 }
 
 /* --------Drop down--------------------------- */
+.nav-dropdown {
+    /* position: relative; */
+    margin: 0px 5px 0px 5px;
+    display: flex;  
+}
+
 summary::-webkit-details-marker { /* for Chrome */
     display: none
-  }
+}
   
+.navbar-menu-user {
+    cursor: pointer;
+    align-self: center;
+
+    /* position: relative; */
+    height: 100%;
+}
+
 .details-summary {
     color: white;
    /* for Firefox */
     /* display: block;  */
     display: flex;
     align-items: center;
-}
+    height: 100%;
 
-.navbar-menu-user {
-    cursor: pointer;
-    align-self: center;
-
-    /* position: relative; */
+    outline: none; /* chrome */
 }
 
 .navbar-dropdown-menu {
@@ -48,18 +58,11 @@ summary::-webkit-details-marker { /* for Chrome */
 }
 
 .dropdown-menu-ul {
-    /* width: 100px; */
     text-align: left;
     list-style: none;
     padding-left: 0;
-    /* padding: 0; */
-    /* position: absolute; */
-    /* left: 0; */
-    /* background: black; */
     color: white;
-    /* margin-left: 0; */
-    /* left: 0; */
-    /* cursor: pointer; */
+
     margin: 0;
 }
 
@@ -76,7 +79,6 @@ summary::-webkit-details-marker { /* for Chrome */
 
 .dropdown-menu-ul > li:hover {
     opacity: .5;
-    /* background-color: darkgrey; */
 }
 
 .dropdown-menu-effect {
@@ -93,8 +95,7 @@ summary::-webkit-details-marker { /* for Chrome */
 .navbar-menu-toggle-nav {
     padding: 0;
     display: inline-block;
-    /* text-decoration: none; */
-    /* overflow: visible; */
+
     border: 0;
 
     background: transparent;
@@ -114,12 +115,7 @@ summary::-webkit-details-marker { /* for Chrome */
     align-items: center;
 }
 
-.nav-dropdown {
-    /* position: relative; */
-    margin: 0px 5px 0px 5px;
 
-    display: flex;
-}
 /* -------------------------------------------- */
 
 .navbar-username {
