@@ -59,12 +59,9 @@ const PostDisplayMulti = ({ query }) => {
     });
   };
 
-  // const handlePrevPage = async (page) => {
-  const handlePrevPage = async () => {
+  const handlePrevPage = () => {
     if (page > 1) {
-      // let result = await getPosts(page - 1);
       unstable_batchedUpdates(async () => {
-        // setPage((page) => page - 1);
         setPage((page) => { return (page > 1) ? page -1 : page });
         let result = await getPosts(page - 1);
         setPostList(result);
@@ -72,12 +69,10 @@ const PostDisplayMulti = ({ query }) => {
     } 
   };
 
-  // const handleNextPage = async (page, postCount) => {
-  const handleNextPage = async (postCount) => {
+
+  const handleNextPage = (postCount) => {
     if (postCount / 5 > page) {
-      // let result = await getPosts(page + 1);
-      unstable_batchedUpdates(async () => {
-        // setPage((page) => page + 1);
+      unstable_batchedUpdates(async () => { // Consider useEffect on the "page" state var for setPostList & the fetch req
         setPage((page) => {return (postCount / 5 > page) ? page +1 : page});
         let result = await getPosts(page + 1);
         setPostList(result);
@@ -105,7 +100,6 @@ const PostDisplayMulti = ({ query }) => {
       <div className="post-button-wrapper">
         <button
           className="post-button-previous"
-          // onClick={() => handlePrevPage(page)}
           onClick={() => handlePrevPage()}
           disabled={page > 1 ? false : true}
         >
@@ -114,7 +108,6 @@ const PostDisplayMulti = ({ query }) => {
         <input className='post-display-page' type="number" value={page} readonly disabled/>
         <button
           className="post-button-next"
-          // onClick={() => handleNextPage(page, postCount)}
           onClick={() => handleNextPage(postCount)}
           disabled={postCount / 5 > page ? false : true}
         >
