@@ -62,10 +62,11 @@ const PostDisplayMulti = ({ query }) => {
   // const handlePrevPage = async (page) => {
   const handlePrevPage = async () => {
     if (page > 1) {
-      let result = await getPosts(page - 1);
-      unstable_batchedUpdates(() => {
+      // let result = await getPosts(page - 1);
+      unstable_batchedUpdates(async () => {
         // setPage((page) => page - 1);
         setPage((page) => { return (page > 1) ? page -1 : page });
+        let result = await getPosts(page - 1);
         setPostList(result);
       });
     } 
@@ -74,10 +75,11 @@ const PostDisplayMulti = ({ query }) => {
   // const handleNextPage = async (page, postCount) => {
   const handleNextPage = async (postCount) => {
     if (postCount / 5 > page) {
-      let result = await getPosts(page + 1);
-      unstable_batchedUpdates(() => {
+      // let result = await getPosts(page + 1);
+      unstable_batchedUpdates(async () => {
         // setPage((page) => page + 1);
         setPage((page) => {return (postCount / 5 > page) ? page +1 : page});
+        let result = await getPosts(page + 1);
         setPostList(result);
       });
     } 
