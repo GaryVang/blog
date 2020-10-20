@@ -64,12 +64,9 @@ const PostDisplayMulti = ({ query }) => {
     if (page > 1) {
       let result = await getPosts(page - 1);
       unstable_batchedUpdates(() => {
-        if (page > 1) {
-          setPage((page) => page - 1);
-          setPostList(result);
-        }
         // setPage((page) => page - 1);
-        // setPostList(result);
+        setPage((page) => { return (page > 1) ? page -1 : page });
+        setPostList(result);
       });
     } 
   };
@@ -79,12 +76,9 @@ const PostDisplayMulti = ({ query }) => {
     if (postCount / 5 > page) {
       let result = await getPosts(page + 1);
       unstable_batchedUpdates(() => {
-        if (postCount / 5 > page) {
-          setPage((page) => page + 1);
-          setPostList(result);
-        }
         // setPage((page) => page + 1);
-        // setPostList(result);
+        setPage((page) => {return (postCount / 5 > page) ? page +1 : page});
+        setPostList(result);
       });
     } 
   };
