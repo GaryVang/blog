@@ -26,11 +26,12 @@ const PostOverlay = ({ post, disableFullView }) => {
           <h3 className="post-overlay-title">{post.title}</h3>
           <span className="post-overlay-publish-wrapper">
             <span>
-              By <a className="post-overlay-mini-username" onClick={(e) => {handleUsernameClick(e);}}>
+              By: <a className="post-overlay-mini-username" onClick={(e) => {handleUsernameClick(e);}}>
                 {post.username}
               </a>
+              {/* <span> @ <time>{post.post_date}</time></span> */}
             </span>
-            <time>Published {post.post_date}</time>
+            <time>Published: {post.post_date}</time>
           </span>
         </header>
         <p className="post-overlay-content">{post.body}</p>

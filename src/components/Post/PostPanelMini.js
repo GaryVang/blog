@@ -11,23 +11,28 @@ const PostPanelMini = ({ post, enableFullView }) => {
     history.push(`/user/${post.username}`);
   };
 
+  const handleCategoryClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <article
       className="post-panel-mini-container"
       onClick={() => enableFullView(post)}
     >
-      <header>
+      <header className="post-panel-mini-header">
+        <span className='tag tag-uncategorized' onClick={(e) => {handleCategoryClick(e);}}>Uncategorized</span>
         <h1 className="post-panel-mini-title">{post.title}</h1>
         <span className="post-panel-mini-publish-wrapper">
           <span>
-            By <a className="post-panel-mini-username" onClick={(e) => {handleUsernameClick(e);}}>
+            By: <a className="post-panel-mini-username" onClick={(e) => {handleUsernameClick(e);}}>
               {post.username}
             </a>
+            <span> @ <time>{post.post_date}</time></span>
           </span>
-          <time>Published {post.post_date}</time>
         </span>
-        <p className="post-panel-mini-snippet">{post.body}</p>
       </header>
+      <p className="post-panel-mini-snippet">{post.body}</p>
     </article>
   );
 };

@@ -5,6 +5,8 @@ import PostPanelMini from "./PostPanelMini";
 import { fetchHomeInitial, fetchPosts } from "../../helpers/getData.js";
 import PostOverlay from "./PostOverlay";
 
+import LoadingIcon from '@material-ui/icons/Autorenew';
+
 import "./PostDisplayMulti.css";
 
 // const URL_FETCHPOSTS = "http://localhost:3005/getPosts/";
@@ -59,6 +61,16 @@ const PostDisplayMulti = ({ query }) => {
     });
   };
 
+  const renderLoadingScreen = () => {
+    return (
+      // <div className="post-display-multi-loading-screen">Loading Screen</div>
+      <div className='post-display-multi-loading-container'>
+        <LoadingIcon className='loading-icon' style={{ fontSize: 100 }}/>
+        <span className='post-display-multi-loading-text'>Loading Posts</span>
+      </div>
+    );
+  };
+
   const handlePrevPage = () => {
     if (page > 1) {
       unstable_batchedUpdates(async () => {
@@ -68,7 +80,6 @@ const PostDisplayMulti = ({ query }) => {
       });
     } 
   };
-
 
   const handleNextPage = (postCount) => {
     if (postCount / 5 > page) {
@@ -114,7 +125,8 @@ const PostDisplayMulti = ({ query }) => {
           Forward
         </button>
       </div>
-      {postList ? renderPosts(enableFullView) : null}
+      {postList ? renderPosts(enableFullView) : renderLoadingScreen()}
+      {/* {postList ? renderLoadingScreen() : null} */}
     </section>
   );
 };
