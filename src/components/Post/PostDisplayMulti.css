@@ -1,6 +1,9 @@
 .post-display-multi-container {
     margin-top: 10px;
     width: 95%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .post-button-wrapper {
@@ -25,4 +28,30 @@
     min-width: 0;
     text-align: center;
     color: black;
+}
+
+.post-display-multi-loading-container{
+    color: white;
+    font-size: 25px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.loading-icon {
+    color: white;
+    display: flex;
+    align-self: center;
+    animation: spin 2s linear infinite;
+    margin-top: 30px;
+    text-shadow: 2px 2px black;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.post-display-multi-loading-text {
+    text-shadow: 1px 1px 100px black;
 }

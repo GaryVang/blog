@@ -11,14 +11,17 @@ const PostPanelMini = ({ post, enableFullView }) => {
     history.push(`/user/${post.username}`);
   };
 
+  const handleCategoryClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <article
       className="post-panel-mini-container"
       onClick={() => enableFullView(post)}
     >
       <header className="post-panel-mini-header">
-        <span className='tag test-tag'>Uncategorized</span>
-        {/* <span className='tag test-tag'>{String.fromCodePoint('0x1F60A')}</span> */}
+        <span className='tag tag-uncategorized' onClick={(e) => {handleCategoryClick(e);}}>Uncategorized</span>
         <h1 className="post-panel-mini-title">{post.title}</h1>
         <span className="post-panel-mini-publish-wrapper">
           <span>
@@ -27,8 +30,6 @@ const PostPanelMini = ({ post, enableFullView }) => {
             </a>
             <span> @ <time>{post.post_date}</time></span>
           </span>
-          {/* <span> On <time>{post.post_date}</time></span> */}
-          {/* <time>Published {post.post_date}</time> */}
         </span>
       </header>
       <p className="post-panel-mini-snippet">{post.body}</p>
