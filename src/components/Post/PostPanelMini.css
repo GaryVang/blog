@@ -48,6 +48,9 @@
     margin-top: 5px;
     margin-bottom: 5px;
     white-space: pre-wrap;
+
+    text-align: left;
+    align-self: center;
 }
 
 /* ----------Category------------------- */

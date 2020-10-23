@@ -22,7 +22,7 @@ const PostOverlay = ({ post, disableFullView }) => {
         className="post-overlay-article-container"
         onClick={(e) => handleArticleClick(e)}
       >
-        <header>
+        <header className="post-overlay-header">
           <h3 className="post-overlay-title">{post.title}</h3>
           <span className="post-overlay-publish-wrapper">
             <span>
