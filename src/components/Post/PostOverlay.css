@@ -1,6 +1,11 @@
 .post-overlay-container {
     position: fixed;
-    top: 63px; /*size of navbar */
+    
+    /*size of navbar */
+    /* top: 63px;  */
+    top: 0px;
+    padding-top: 63px;
+
     left: 0;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.7);
