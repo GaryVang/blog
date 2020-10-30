@@ -15,13 +15,25 @@ const PostPanelMini = ({ post, enableFullView }) => {
     e.stopPropagation();
   };
 
+  const renderCategorySwitch = (category_id) => {
+    switch(category_id) {
+      case 0:
+        return 'uncategorized'
+        // return 'uncategorized';
+      default:
+        return 'uncategorized';
+    }
+  };
+
+  console.log('post: ', post.category);
+
   return (
     <article
       className="post-panel-mini-container"
       onClick={() => enableFullView(post)}
     >
       <header className="post-panel-mini-header">
-        <span className='tag tag-uncategorized' onClick={(e) => {handleCategoryClick(e);}}>Uncategorized</span>
+        <span className={'tag ' + `tag-${renderCategorySwitch(post.category_id)}`} onClick={(e) => {handleCategoryClick(e);}}>{post.category_name}</span>
         <h1 className="post-panel-mini-title">{post.title}</h1>
         <span className="post-panel-mini-publish-wrapper">
           <span>

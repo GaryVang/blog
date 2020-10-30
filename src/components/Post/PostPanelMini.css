@@ -69,6 +69,8 @@
     align-items: center;
     color: white;
     font-size: 18px;
+
+    text-transform: capitalize;
 }
 
 .tag:hover {
@@ -80,6 +82,10 @@
 
 .tag-uncategorized {
     background: orange;
+}
+
+.tag-science {
+    background: lightblue;
 }
 
 /* ----------Category End----------------------- */
