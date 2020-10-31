@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.post-create-title-wrapper {
+.post-create-title-wrapper, .post-create-category-wrapper {
   display: flex;
   align-items: flex-start;
   white-space: pre;
@@ -28,6 +28,14 @@
 
 .post-create-title {
   width: 45%;
+}
+
+.post-create-category-label {
+
+}
+
+.post-create-category-input {
+  align-self: flex-end;
 }
 
 .post-create-title:focus {
