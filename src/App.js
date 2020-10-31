@@ -24,6 +24,7 @@ const App = () => {
   const history = useHistory();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
   useEffect(() => {
     const checkIsLoggedIn = async () => {
       // const username = await fetchIsLoggedIn(URL_AUTH);
@@ -39,6 +40,7 @@ const App = () => {
   }, []);
 
   const [user, setUser] = useState(null);
+  // const [user, setUser] = useState("Godly");
 
   const handleLogout = async () => {
     await fetchLogout();

@@ -10,6 +10,8 @@ import { useHistory } from "react-router-dom";
 
 import { fetchSubmitPost, fetchIsLoggedIn } from "../../helpers/getData";
 
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
 import "./CreatePost.css";
 
 // const URL_SUBMITPOST = "http://localhost:3005/submitPost/";
@@ -36,6 +38,7 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
 
   const [title, setTitle] = useState("");
   const [textarea, setTextarea] = useState("");
+  const [categoryId, setCategoryId] = useState(0);
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -43,6 +46,10 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
 
   const onTextareaChange = (e) => {
     setTextarea(e.target.value);
+  };
+
+  const onCategoryChange = (e) => {
+    setCategoryId(e.target.value);
   };
 
   const onFormSubmit = (e) => {
@@ -61,6 +68,7 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
         title: title,
         content: textarea,
         user_id: user.user_id,
+        category_id: categoryId,
       });
       if (response.status) {
         alert("Submission Successful");
@@ -106,6 +114,29 @@ const CreatePost = ({ user, setIsLoggedIn }) => {
             />
           </span>
 
+          <span className="post-create-category-wrapper">
+            <label className="post-create-category-label">
+              Category:{" "}
+            </label>
+            <select className="post-create-category-input" onChange={onCategoryChange} value={categoryId} id="category" name="category">
+              <option value={0}>Uncategorized</option>
+              <option value={1}>Update</option>
+              <option value={2}>Important</option>
+              <option value={11}>Entertainment</option>
+              <option value={12}>Food</option>
+              <option value={13}>General</option>
+              <option value={14}>Health</option>
+              <option value={15}>Life</option>
+              <option value={16}>Music</option>
+              <option value={17}>News</option>
+              <option value={18}>Politics</option>
+              <option value={19}>Science</option>
+              <option value={20}>Sports</option>
+              <option value={21}>Technology</option>
+              <option value={22}>Medicine</option>
+            </select>
+          </span>
+          
           <textarea
             className="post-create-textarea"
             placeholder="content..."
