@@ -22,6 +22,8 @@
     width: 290px;
     padding: 2px;
     margin: 1px;
+
+    border: 1px solid grey;
 }
 
 .signin-input-username:focus,
