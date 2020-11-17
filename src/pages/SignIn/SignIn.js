@@ -114,13 +114,13 @@ const SignIn = ({ setIsLoggedIn, setUser }) => {
           />
           <span className="signin-button-wrapper">
             <input
-              className="signin-button button sign-button-submit"
+              className="signin-button button signin-button-submit"
               type="Submit"
               value="Log In"
               onClick={handleSubmit}
             />
             <input
-              className="signin-button button"
+              className="signin-button button signin-button-clear"
               type="button"
               value="Clear"
               onClick={handleClear}

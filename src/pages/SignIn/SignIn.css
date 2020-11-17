@@ -20,6 +20,7 @@
 .signin-input-username,
 .signin-input-password {
     width: 290px;
+    padding: 2px;
 }
 
 .signin-input-username:focus,
@@ -38,13 +39,30 @@
 }
 
 .signin-button {
-    background-color: #ebe4c2;
+    /* background-color: #ebe4c2; */
+    border-radius: 4px;
+
+    width: 72px;
+    height: 24px;
+    border: none;
+
+    color: white;
 }
 
-.signin-button:hover {
-    background-color: #dad3b5;
+.signin-button-submit {
+    margin-right: 12px;
+    border-color: green;
+    background-color: rgb(0, 163, 0);
 }
 
-.sign-button-submit {
-    margin-right: 5px;
+.signin-button-submit:hover {
+    background-color: rgb(0, 197, 0);
+}
+
+.signin-button-clear {
+    background-color: rgb(243, 0, 0);
+}
+
+.signin-button-clear:hover {
+    background-color: rgb(255, 0, 0);
 }
