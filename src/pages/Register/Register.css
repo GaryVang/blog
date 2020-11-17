@@ -20,6 +20,7 @@
 .register-input-username,
 .register-input-password {
     width: 290px;
+    padding: 2px;
 }
 .register-input-username:focus,
 .register-input-password:focus {
@@ -37,9 +38,15 @@
 }
 
 .register-button-submit {
-    background-color: #ebe4c2;
+    border: none;
+    border-radius: 4px;
+    height: 24px;
+
+    border-color: green;
+    background-color: rgb(0, 163, 0);
+    color: white;
 }
 
 .register-button-submit:hover {
-    background-color: #dad3b5;
+    background-color: rgb(0, 197, 0);
 }
