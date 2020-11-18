@@ -84,8 +84,60 @@
     background: orange;
 }
 
+.tag-update {
+    background: rgb(39, 196, 0);
+}
+
+.tag-important {
+    background: rgb(216, 0, 0);
+}
+
+.tag-entertainment {
+    background: rgb(167, 0, 167);
+}
+
+.tag-food {
+    background: rgb(122, 197, 122);
+}
+
+.tag-general {
+    background: rgb(0, 196, 0);
+}
+
+.tag-health {
+    background: coral;
+}
+
+.tag-life {
+    background: cornflowerblue;
+}
+
+.tag-music {
+    background: aquamarine;
+}
+
+.tag-news {
+    background: rgb(65, 65, 175);
+}
+
+.tag-politics {
+    background: wheat;
+}
+
 .tag-science {
     background: lightblue;
+}
+
+.tag-sports {
+    background: teal;
+}
+
+.tag-technology {
+    background: black;
+}
+
+.tag-medicine {
+    background: rgb(39, 153, 190);
 }
 
 /* ----------Category End----------------------- */
