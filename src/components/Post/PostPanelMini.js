@@ -18,7 +18,35 @@ const PostPanelMini = ({ post, enableFullView }) => {
   const renderCategorySwitch = (category_id) => {
     switch(category_id) {
       case 0:
-        return 'uncategorized'
+        return 'uncategorized';
+      case 1:
+        return 'update';
+      case 2:
+        return 'important';
+      case 11:
+        return 'entertainment';
+      case 12:
+        return 'food';
+      case 13:
+        return 'general';
+      case 14:
+        return 'health';
+      case 15:
+        return 'life';
+      case 16:
+        return 'music';
+      case 17:
+        return 'news';
+      case 18:
+        return 'politics';
+      case 19:
+        return 'science';
+      case 20:
+        return 'sports';
+      case 21:
+        return 'technology';
+      case 22:
+        return 'medicine';
         // return 'uncategorized';
       default:
         return 'uncategorized';
