@@ -78,7 +78,7 @@ const Register = ({}) => {
         <h1>Create your Blog Account</h1>
 
         <form className="register-form" onSubmit={onSubmit}>
-          <label className="label-username" for="username">
+          <label className="register-label-username" for="username">
             Username
           </label>
           <input
