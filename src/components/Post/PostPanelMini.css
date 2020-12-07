@@ -14,8 +14,6 @@
     --el-margin: 8px 10px 8px 10px;
     /* --el-margin: 8px auto 8px auto; */
     --el-margin-single: 10px;
-
-    /* max-height: 235px; */
 }
 
 .post-panel-mini-container:hover {
@@ -187,8 +185,6 @@
 
 @media only screen and (max-width: 600px){
     .post-panel-mini-title {
-        /* margin-top: 3px; */
-        /* margin-bottom: 0px; */
         font-size: 18px;
         margin: 3px 10px 0 10px;
 
