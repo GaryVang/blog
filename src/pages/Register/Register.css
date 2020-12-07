@@ -4,7 +4,6 @@
 
     --el-margin: 20px;
     --el-child-margin: 8px;
-    /* --el-hover-border: 2px; */
     --el-hover-border: 0px;
     --el-child-border-radius: 3px;
 }
@@ -12,7 +11,6 @@
 .register-container {
     background-color: white;
     margin-top: 50px;
-    /* border: 2px solid lightgrey; */
     border-radius: 10px;
     width: 500px;
 }
@@ -22,11 +20,6 @@
     flex-direction: column;
     align-items: center;
 }
-
-/* .register-label-username,
-.register-label-password {
-    font-weight: bold;
-} */
 
 .register-input-username,
 .register-input-password {
@@ -44,12 +37,7 @@
 }
 .register-input-username:focus,
 .register-input-password:focus {
-    /* margin: 0; */
     margin-bottom: calc(var(--el-child-margin) - var(--el-hover-border));
-
-    /* border: 2px solid #1e537c;
-    -webkit-box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 1px rgba(12,34,51,0.52); 
-    box-shadow: 0px 0px 0px -7px #000000, 0px 0px 3px 1px rgba(12,34,51,0.52); */
 
     border: 1px solid rgb(30, 83, 124);
     -webkit-box-shadow: 0px 0px 3px 2px rgba(27, 86, 141, .5); 
@@ -58,13 +46,11 @@
     border-radius: var(--el-child-border-radius);
 }
 
-.register-input-password {
-    /* margin: 0 0 10px; */
-}
+/* .register-input-password {
+    margin: 0 0 10px;
+} */
 
 .register-button-wrapper {
-    /* margin: 11px 0 20px 0; */
-
     margin-top: calc(var(--el-margin) - var(--el-child-margin) + 5px);
     margin-bottom: var(--el-margin);
 }
